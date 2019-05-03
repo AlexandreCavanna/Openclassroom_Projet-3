@@ -1,22 +1,25 @@
 /* API JCDecaux : 6a44c41c86a1d2eb545763e7342cca6867d25c75 */
 
-
+.navbar {
+  box-shadow: 1px 5px 1px rgb(0, 0, 0);
+}
 #slider {
   display: flex;
   justify-content: center;
   overflow: hidden;
 }
-.item, .slider-img {
+
+.item,
+.slider-img {
   padding: 0px 5px 0px 0px
 }
+
 div .item {
   transition: all 1s ease-in-out;
 }
 
-#mapid {
- position: relative;
- top: 1500px;
-} 
+
+
 .btn-perso {
   z-index: 2;
   position: absolute;
@@ -24,18 +27,29 @@ div .item {
   font-size: 150px;
   cursor: pointer;
 }
+
 #boutonDroit {
-  left: 500px;
+  left: 1700px;
+  top: 250px;
 }
+
 #boutonGauche {
-  left: 50px;
-}
+  left: 750px;
+  top: 250px;
+  }
+
 #zone_reservation {
   display: flex;
   flex-direction: column;
+  text-align: center;
   width: 20%;
-  height: 100%;
-  background-color: rgb(248, 254, 254);
-  box-shadow: 1px 1px 3px #3D4D65;
+  background-color: rgb(215, 210, 210);
+  box-shadow: 1px 1px 1px #3D4D65;
+  padding-top:20px;
+  border-left: 3px solid #3D4D65;
 }
-
+.container-flex {
+  display: flex;
+  margin-top: 5px;
+  box-shadow: 1px -5px 0px rgb(0, 0, 0);
+}
