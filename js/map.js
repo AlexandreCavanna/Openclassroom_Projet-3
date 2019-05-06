@@ -14,6 +14,7 @@ carte = {
 
     createMarker: function(stations) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         var redIcon = L.icon({
             iconUrl: 'images/red_marker.png',
             shadowUrl: 'https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png',
@@ -41,10 +42,19 @@ carte = {
             marker.bindPopup(marker.name);
             markers.addLayer(marker);
 >>>>>>> 43162e9ac08737f07725075fbf0c954e6d3f895b
+=======
+        markers = L.markerClusterGroup();
+        stations.forEach(station => {
+            var marker = L.marker(new L.LatLng(station.position.lat, station.position.lng));
+            marker.name = station.name;
+            marker.bindPopup(marker.name);
+            markers.addLayer(marker);
+>>>>>>> 43162e9ac08737f07725075fbf0c954e6d3f895b
             marker.addEventListener("click", function(e) {
             carte.viewMap.setView(e.latlng, 17);
                                 document.querySelector("div#zone_reservation h3").textContent = station.name;
             var stationStatus = document.querySelector("#zone_reservation > p:nth-child(3)");
+<<<<<<< HEAD
 <<<<<<< HEAD
             var stationAddress = document.querySelector("#zone_reservation > p:nth-child(5)");
             var stationBike = document.querySelector("#zone_reservation > p:nth-child(7)");
@@ -76,6 +86,8 @@ carte = {
               
            })
 =======
+=======
+>>>>>>> 43162e9ac08737f07725075fbf0c954e6d3f895b
                                 document.querySelector("#zone_reservation > p:nth-child(5)").textContent = station.address;
                                 document.querySelector("#zone_reservation > p:nth-child(7)").textContent = station.available_bike_stands;
                 if ( station.status === 'OPEN') {
@@ -84,6 +96,9 @@ carte = {
                     stationStatus.textContent = "FERMER";
                 }
             })
+<<<<<<< HEAD
+>>>>>>> 43162e9ac08737f07725075fbf0c954e6d3f895b
+=======
 >>>>>>> 43162e9ac08737f07725075fbf0c954e6d3f895b
         });      
         carte.viewMap.addLayer(markers);

@@ -8,7 +8,11 @@ carte.initMap();
 ajax(url, function(resp) {
     let stations = JSON.parse(resp);
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log(resp);
+=======
+    //console.log(resp);
+>>>>>>> 43162e9ac08737f07725075fbf0c954e6d3f895b
 =======
     //console.log(resp);
 >>>>>>> 43162e9ac08737f07725075fbf0c954e6d3f895b
