@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="fr">
-<<<<<<< HEAD
    <head>
       <!-- Required meta tags -->
       <meta charset="utf-8">
@@ -81,95 +80,4 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
    </body>
-=======
-
-<head>
-  <!-- Required meta tags --->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Hello, world!</title>
-</head>
-
-<body>
-  <nav class="navbar navbar-light bg-light">
-    <a class="d-flex align-items-center navbar-brand" href="#">
-      <img src="images/velo.png" width="120" height="77" class="d-inline-block align-center" alt="Vélo">
-      <span class="h1 align-center pl-3">Easy Vélo</span>
-    </a>
-  </nav>
-  <div id="slider">
-    <div class="btn-perso" id="boutonGauche"><i class="fas fa-angle-left"></i></div>
-    <div class="item">
-      <img src="images/test.png" id="1" class="slider-img">
-    </div>
-    <div class="item">
-      <img src="images/test.png" id="2" class="slider-img">
-    </div>
-    <div class="item">
-      <img src="images/test.png" id="3" class="slider-img">
-    </div>
-    <div class="btn-perso" id="boutonDroit"><span class="fas fa-angle-right"></span></div>
-
-  </div>
-  <div class="container-flex">
-  <div id="mapid" style="height :100vh; width:80%;"></div>
-  <div id="zone_reservation">
-
-    <!-- Nom de la station de vélo -->
-    <h3>Nom de la station</h3>
-
-    
-
-    
-        <i class="fas fa-clock"></i>
-      
-    <p>Ouverte / Fermer</p>
-    <i class="fas fa-map-marker-alt"></i>
-    <p>Adresse de la station</p>
-    <i class="fas fa-bicycle"></i>
-    <p>Nombre de Vélib(s) disponibles</p>
-
-    <h3 id="titre_formulaire" style="display: none;">Réservation</h3> <!-- Titre <h3> du formulaire -->
-
-    <div class="separateur_informations" id="separateur_signature" style="display: none;">
-      <div class="trait_gauche2"></div>
-      <ul class="img_position">
-        <li><i class="fas fa-edit"></i></li>
-      </ul>
-      <div class="trait_droit2"></div>
-    </div>
-
-    <p id="signature" style="display: none;">Signature :</p>
-
-    <!-- Canvas pour signer la réservation -->
-    <canvas id="canvas" width="310" height="100" style="display: none;"></canvas>
-
-    <!-- Zone des boutons de la fenêtre d'informations -->
-    <div id="boutons_formulaire" style="display: none;">
-      <!-- Bouton pour Effacer le contenu du Canvas -->
-      <input type="button" value="Effacer" id="effacer">
-      <!-- Bouton Valider -->
-      <input type="button" id="bouton_valider" value="Valider">
-    </div>
- </div>
-</div>
-  <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI="crossorigin="anonymous"></script>
-  <script src="js/ajax.js"></script>
-  <script src="js/JcdecauxObjet.js"></script>
-  <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js" ></script>
-  <script src="js/map.js"></script>
-  <script src="js/main.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-
->>>>>>> develop
 </html>
