@@ -1,55 +1,131 @@
 /* API JCDecaux : 6a44c41c86a1d2eb545763e7342cca6867d25c75 */
+html,
+body {
+    font-family: 'Comfortaa', cursive;
+}
 
 .navbar {
-  box-shadow: 1px 5px 1px rgb(0, 0, 0);
+    box-shadow: 1px 5px 1px rgb(0, 0, 0);
 }
+
 #slider {
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#mapid {
+    height: 90vh !important;
+    width: 100% !important;
 }
 
 .item,
 .slider-img {
-  padding: 0px 5px 0px 0px
+    padding: 0px 5px 0px 0px
+}
+
+.logo-form {
+    font-size: 30px;
 }
 
 div .item {
-  transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
 }
 
-
-
-.btn-perso {
-  z-index: 2;
-  position: absolute;
-  top: 450px;
-  font-size: 150px;
-  cursor: pointer;
+.col,
+.col-1,
+.col-10,
+.col-11,
+.col-12,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-auto,
+.col-lg,
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-auto,
+.col-md,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-auto,
+.col-sm,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-auto,
+.col-xl,
+.col-xl-1,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-auto {
+    padding-right: 0px;
+    padding-left: 0px;
 }
 
-#boutonDroit {
-  left: 1700px;
-  top: 250px;
+#reset-map {
+    position: absolute;
+    z-index: 1000;
+    left: calc(50% - 75px);
+    top: 10px;
+    width: 175px;
 }
-
-#boutonGauche {
-  left: 750px;
-  top: 250px;
-  }
 
 #zone_reservation {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  width: 20%;
-  background-color: rgb(215, 210, 210);
-  box-shadow: 1px 1px 1px #3D4D65;
-  padding-top:20px;
-  border-left: 3px solid #3D4D65;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 20%;
+    background-color: rgb(215, 210, 210);
+    box-shadow: 1px 1px 1px #3D4D65;
+    border-left: 3px solid #3D4D65;
 }
+
 .container-flex {
-  display: flex;
-  margin-top: 5px;
-  box-shadow: 1px -5px 0px rgb(0, 0, 0);
+    display: flex;
+    margin-top: 5px;
+    box-shadow: 1px -5px 0px rgb(0, 0, 0);
 }
