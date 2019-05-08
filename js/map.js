@@ -46,7 +46,8 @@ carte = {
                 var imgl = document.getElementsByClassName("leaflet-marker-icon");
                 if (station.address === "") {
                     stationAddress.classList.add("text-danger");
-                    stationAddress.textContent = "Pas d'adresse renseigné"
+                    stationAddress.textContent = "Pas d'adresse renseigné";
+                    icoMarker.classList.remove("text-primary");
                     icoMarker.classList.add("text-danger");
                 } else {
                     stationAddress.classList.remove("text-danger");
@@ -83,9 +84,9 @@ carte = {
 
             })
             var buttonResetMap = document.getElementById("reset-map");
-            buttonResetMap.addEventListener("click", function(e) {
-
-                carte.viewMap.setView([45.764043, 4.835659], 13);
+            buttonResetMap.addEventListener("click", function() {
+            carte.viewMap.setView([45.764043, 4.835659], 13);
+            marker.closePopup();
             })
         });
         carte.viewMap.addLayer(markers);
