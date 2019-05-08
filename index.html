@@ -23,6 +23,7 @@
             <span class="h1 align-center pl-3">Easy Vélo</span>
         </a>
     </nav>
+<<<<<<< HEAD
     <div id="slider">
         <div class="btn-perso" id="boutonGauche"><i class="fas fa-angle-left"></i></div>
         <div class="item">
@@ -82,6 +83,69 @@
                             Stations disposant de plusieurs Vélibs
                         </li>
 
+=======
+     <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+            <div id="slider">
+                    <div class="btn-perso" id="boutonGauche"><i class="fas fa-angle-left"></i></div>
+                    <div class="item">
+                        <img src="images/test.png" id="1" class="slider-img">
+                    </div>
+                    <div class="item">
+                        <img src="images/test.png" id="2" class="slider-img">
+                    </div>
+                    <div class="item">
+                        <img src="images/test.png" id="3" class="slider-img">
+                    </div>
+                    <div class="btn-perso" id="boutonDroit"><span class="fas fa-angle-right"></span></div>
+            </div>
+        </div>
+                </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-12">
+                <div id="mapid" style="height :100vh; width:80%;"></div>
+                <button type="button" id="reset-map" class="btn btn-secondary btn-sm">Réinitialiser la carte</button>
+            </div>
+            <div class="col-lg-4 col-md-12 bg-light">
+                <div class="card text-center my-3 ml-3 mr-3 text-center" style="display:none;">
+                    <!-- Nom de la station de vélo -->
+                    <div class="card-header">
+                        <h3 class="mb-0 font-weight-bold">Nom de la station</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="col">
+                            <i class="fas fa-clock text-danger logo-form"></i>
+                            <p class="mt-2 mb-0">Ouverte / Fermer</p>
+                        </div>
+                        <hr>
+                        <div class="col">
+                            <i class="fas fa-map-marker-alt text-danger logo-form"></i>
+                            <p class="mt-2 mb-0">Adresse de la station</p>
+                        </div>
+                        <hr>
+                        <div class="col">
+                            <i class="fas fa-bicycle text-danger logo-form"></i>
+                            <p>Nombre de Vélib(s) disponibles</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="alert-form" class="alert alert-warning my-3 ml-3 mr-3" role="alert">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Veuillez sélectionner une station !
+                </div>
+                <div id="map-legend" class="card my-3 ml-3 mr-3">
+                    <div class="card-header text-center">
+                        <h4 class="mb-0 font-weight-bold">Légende</h4>
+                    </div>
+
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png" alt="Marker bleu">
+                            Stations disposant de plusieurs Vélibs
+                        </li>
+
+>>>>>>> master
                         <li class="list-group-item">
                             <img src="images/red_marker.png" alt="Marker rouge" height="41" width="35">
                             Stations n'ayant plus aucun Vélib
