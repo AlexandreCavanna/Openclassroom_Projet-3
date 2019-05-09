@@ -9,6 +9,7 @@ ajax(url, function(resp) {
     let stations = JSON.parse(resp);
     //console.log(resp);
     carte.createMarker(stations);
+    form.manageForm(stations);
 });
 
  

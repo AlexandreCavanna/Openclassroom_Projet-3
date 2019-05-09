@@ -43,7 +43,6 @@ carte = {
                 var icoClock = document.querySelector("div.card-body div:nth-child(1) i");
                 var icoMarker = document.querySelector("div.card-body div:nth-child(3) i");
                 var icoBike = document.querySelector("div.card-body div:nth-child(5) i");
-                var imgl = document.getElementsByClassName("leaflet-marker-icon");
                 if (station.address === "") {
                     stationAddress.classList.add("text-danger");
                     stationAddress.textContent = "Pas d'adresse renseigné";
@@ -79,16 +78,15 @@ carte = {
                     stationBike.classList.remove("text-success");
                     icoBike.classList.remove("text-primary");
                     icoBike.classList.add("text-danger");
-                    stationBike.classList.add("text-danger", "font-weight-bold");      
+                    stationBike.classList.add("text-danger", "font-weight-bold");
+                    icoMarker.classList.remove("text-primary");
+                    icoMarker.classList.add("text-danger");
                 }
+            })
 
-            })
-            var buttonResetMap = document.getElementById("reset-map");
-            buttonResetMap.addEventListener("click", function() {
-            carte.viewMap.setView([45.764043, 4.835659], 13);
-            marker.closePopup();
-            })
+
         });
         carte.viewMap.addLayer(markers);
     }
+
 }

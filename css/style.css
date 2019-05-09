@@ -123,7 +123,11 @@ div .item {
     box-shadow: 1px 1px 1px #3D4D65;
     border-left: 3px solid #3D4D65;
 }
-
+canvas { 
+    background: #eee; 
+    display: block; 
+    margin: 0 auto; 
+}
 .container-flex {
     display: flex;
     margin-top: 5px;
