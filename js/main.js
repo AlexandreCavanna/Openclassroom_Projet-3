@@ -10,7 +10,9 @@ ajax(url, function(resp) {
     //console.log(resp);
     carte.createMarker(stations);
     form.manageForm(stations);
+    creatCanvas.initCanvas();
 });
+
 
  
 
