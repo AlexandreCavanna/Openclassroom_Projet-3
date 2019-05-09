@@ -1,6 +1,6 @@
 carte = {
 
-    viewMap: L.map('mapid').setView([45.764043, 4.835659], 13),
+    viewMap: L.map('mapid', { dragging: !L.Browser.mobile }).setView([45.764043, 4.835659], 13),
 
     initMap: function() {
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -10,6 +10,7 @@ carte = {
             accessToken: 'pk.eyJ1IjoiaXNwaXJrIiwiYSI6ImNqdGc2M2ZxNzAwY3I0M3A5anlsZHBzNHYifQ.ZBDPL2DEHO5AKzMXUB1klQ',
 
         }).addTo(carte.viewMap);
+        carte.viewMap.scrollWheelZoom.disable();
     },
 
     createMarker: function(stations) {
@@ -54,6 +55,7 @@ carte = {
                 buttonSucess.style.display = "none";
                 buttonReserve.style.display = "inline-block";
                 mapLegend.style.display = "block";
+                createCanvas.clearCanvas();
                 if (station.address === "") {
                     stationAddress.classList.add("text-danger");
                     stationAddress.textContent = "Pas d'adresse renseigné";
