@@ -103,5 +103,8 @@
             createCanvas.context.clearRect(0, 0, canvas[0].width, canvas[0].height); // Efface le contenu du canvas
             document.getElementById("reservation-success").style.display = "none";
         });
+    },
+    clearCanvas(){
+        createCanvas.context.clearRect(0, 0, canvas[0].width, canvas[0].height);
     }
 }
