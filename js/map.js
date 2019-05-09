@@ -43,6 +43,17 @@ carte = {
                 var icoClock = document.querySelector("div.card-body div:nth-child(1) i");
                 var icoMarker = document.querySelector("div.card-body div:nth-child(3) i");
                 var icoBike = document.querySelector("div.card-body div:nth-child(5) i");
+                var formFooter = document.getElementById("form-footer");
+                var mapLegend = document.getElementById("map-legend");
+                var buttonReserve = document.getElementById("button-reservation");
+                var buttonSucess = document.getElementById("reservation-success");
+                var buttonDelete = document.getElementById("canvas-delete");
+                var sectionReserve = document.getElementById("section-reservation");
+                sectionReserve.style.display = "none";
+                buttonDelete.style.display = "none";
+                buttonSucess.style.display = "none";
+                buttonReserve.style.display = "inline-block";
+                mapLegend.style.display = "block";
                 if (station.address === "") {
                     stationAddress.classList.add("text-danger");
                     stationAddress.textContent = "Pas d'adresse renseigné";
@@ -82,6 +93,15 @@ carte = {
                     icoMarker.classList.remove("text-primary");
                     icoMarker.classList.add("text-danger");
                 }
+                if (icoBike.classList.contains("text-danger")|| icoClock.classList.contains("text-danger"))  {
+                    formFooter.style.display = "none";
+                    sectionReserve.style.display = "none";
+                    
+                } else {
+                    formFooter.style.display = "block";                 
+                }
+                
+                
             })
 
 
