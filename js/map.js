@@ -1,6 +1,6 @@
 carte = {
 
-    viewMap: L.map('mapid', { dragging: !L.Browser.mobile }).setView([45.764043, 4.835659], 13),
+    viewMap: L.map('mapid', {  gestureHandling: true }).setView([45.764043, 4.835659], 13),
 
     initMap: function() {
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
