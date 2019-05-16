@@ -13,10 +13,10 @@ form = {
     reservationContainer: document.getElementById("reservation-container"), // Container de la rÃ©servation en cours
     manageForm: function() {
         this.buttonResetMap = document.getElementById("reset-map");
-        buttonResetMap.addEventListener("click", function() {
+        this.buttonResetMap.addEventListener("click", function() {
             carte.viewMap.setView([45.764043, 4.835659], 13);
         })
-        buttonResetMap.onclick = function() {
+        this.buttonResetMap.onclick = function() {
             carte.viewMap.closePopup();
         }
 
@@ -26,7 +26,7 @@ form = {
         this.mapLegend = document.getElementById("map-legend");
         createCanvas.canvas = document.getElementById("canvas");
         
-        buttonReserve.addEventListener("click", function() {
+        this.buttonReserve.addEventListener("click", function() {
             buttonReserve.style.display = "none";
             mapLegend.style.display = "none";
             sectionReserve.style.display = "block";
