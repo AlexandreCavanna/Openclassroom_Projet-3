@@ -1,8 +1,8 @@
 carte = {
 
-    viewMap: L.map('mapid', {  gestureHandling: true, gestureHandlingOptions: {duration: 5000 }}).setView([45.764043, 4.835659], 13),
+    viewMap: L.map('mapid', { gestureHandling: true, gestureHandlingOptions: { duration: 5000 } }).setView([45.764043, 4.835659], 13),
 
-    initMap: function() {
+    initMap: function () {
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
@@ -13,7 +13,7 @@ carte = {
         carte.viewMap.scrollWheelZoom.disable();
     },
 
-    createMarker: function(stations) {
+    createMarker: function (stations) {
         var redIcon = L.icon({
             iconUrl: 'images/red_marker.png',
             shadowUrl: 'https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png',
@@ -33,13 +33,13 @@ carte = {
             if (station.available_bikes <= 0 || station.status === 'FERMER') {
                 marker.setIcon(redIcon);
             };
-            marker.addEventListener("click", function(e) {
+            marker.addEventListener("click", function (e) {
                 carte.viewMap.setView(e.latlng, 17);
                 document.querySelector("div.card-header h3").textContent = station.name;
                 var stationStatus = document.querySelector("div.card-body div:nth-child(1)  p");
                 var stationAddress = document.querySelector("div:nth-child(3) > p");
                 var stationBike = document.querySelector("div:nth-child(5) > p");
-                document.querySelector("div.card.text-center.my-3.ml-3.mr-3.text-center").style.display = "block";
+                document.querySelector("form").style.display = "block";
                 document.querySelector("#alert-form").style.display = "none";
                 var icoClock = document.querySelector("div.card-body div:nth-child(1) i");
                 var icoMarker = document.querySelector("div.card-body div:nth-child(3) i");
@@ -95,15 +95,15 @@ carte = {
                     icoMarker.classList.remove("text-primary");
                     icoMarker.classList.add("text-danger");
                 }
-                if (icoBike.classList.contains("text-danger")|| icoClock.classList.contains("text-danger"))  {
+                if (icoBike.classList.contains("text-danger") || icoClock.classList.contains("text-danger")) {
                     formFooter.style.display = "none";
                     sectionReserve.style.display = "none";
-                    
+
                 } else {
-                    formFooter.style.display = "block";                 
+                    formFooter.style.display = "block";
                 }
-                
-                
+
+
             })
 
 
