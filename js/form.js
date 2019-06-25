@@ -19,14 +19,6 @@ form = {
     mapLegend: document.getElementById("map-legend"),
     canvas: document.getElementById("canvas"),
     buttonResetMap: document.getElementById("reset-map"),
-    manageForm: function () {
-        this.buttonResetMap.addEventListener("click", function () {
-            carte.viewMap.setView([45.764043, 4.835659], 13);
-        })
-        this.buttonResetMap.onclick = function () {
-            carte.viewMap.closePopup();
-        }
-    },
     showReservation() {
         this.buttonReserve.addEventListener("click", function () {
             form.sectionReserve.style.display = "block";
@@ -40,7 +32,7 @@ form = {
             // Pour recommencer Ã  0 le decompte si l'on reserve un velib sur une autre station
             clearInterval(form.x);
 
-            sessionStorage.setItem("nomStation", this.nomStation.textContent);
+            sessionStorage.setItem("nameStation", this.nomStation.textContent);
             sessionStorage.setItem("name", this.nomForm.value);
             sessionStorage.setItem("firstname", this.prenomForm.value);
 
@@ -100,7 +92,7 @@ form = {
         form.reservationTitle.classList.remove("text-center", "mb-0");
         form.reservationTime.style.display = "block";
         form.reservationTitle.textContent = " Votre réservation est validée !";
-        form.reservationTime.innerHTML = `Bonjour <span class="font-weight-bold">${sessionStorage.firstname} ${sessionStorage.name}</span> vous avez réservé 1 vélib à la station <span class="font-weight-bold">${sessionStorage.nomStation}</span>. <br> Expire dans : <span class="font-weight-bold">${minutes} minute(s) et ${secondes} seconde(s)</span>.`
+        form.reservationTime.innerHTML = `Bonjour <span class="font-weight-bold">${sessionStorage.firstname} ${sessionStorage.name}</span> vous avez réservé 1 vélib à la station <span class="font-weight-bold">${sessionStorage.nameStation}</span>. <br> Expire dans : <span class="font-weight-bold">${minutes} minute(s) et ${secondes} seconde(s)</span>.`
         form.modalReservation.style.display = "inline-block";
     },
 
@@ -136,7 +128,7 @@ form = {
         form.reservationTitle.textContent = "Votre réservation a expiré !";
         form.reservationTitle.classList.add("text-center", "mb-0");
         form.reservationTime.style.display = "none";
-        form.buttonReservationDelete.style.display = "none";
+        form.modalReservation.style.display = "none";
         form.alertForm.innerHTML = `
             <i class="fas fa-exclamation-triangle"></i>
             Veuillez sélectionner une station !
@@ -160,5 +152,17 @@ form = {
             // On relance le timer avec la date Ã  laquelle elle s'est arrÃªtÃ©
             form.reservationTimer(dateEnCours);
         }
+    },
+    initForm: function () {
+        this.buttonResetMap.addEventListener("click", function () {
+            carte.viewMap.setView([45.764043, 4.835659], 13);
+        })
+        this.buttonResetMap.onclick = function () {
+            carte.viewMap.closePopup();
+        }
+        form.showReservation();
+        form.reservationSuccess();
+        form.deleteReservation();
+        form.webStorage();
     }
 }

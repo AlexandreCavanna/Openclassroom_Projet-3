@@ -7,21 +7,160 @@ body {
 .navbar {
     box-shadow: 1px 5px 1px rgb(0, 0, 0);
 }
+#textSlide{
+    text-align:center;
+    padding: 20px;
+}
 
-#slider {
+.slider{
+    margin: auto;
+    width: 80%;
+    background: #fffff5;
+    border-bottom: 1px dotted;
+}
+
+
+#text-slider {
+    position: relative;
+    font-style: normal;
+    margin-bottom: 100px;
+    text-align: center;
+    padding: 50px;
+    margin: 0;
+}
+
+#text-slider h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+#text-slider p {
+    margin-bottom: 40px;
+}
+
+
+
+#titre > .color{
+    color: #bd1515;
+}
+
+#text-slider a {
+    border-radius: 20px;
+    text-decoration: none;
+    padding: 5px 30px;
+    background-color: #194965;
+    color: white;
+}
+
+#text-slider a:hover {
+    background-color: rgba(255, 140, 0, 0.63);
+}
+
+#bouton-info {
+    color: white;
+    background-color: #5badd3;
+    text-decoration: none;
+    border-bottom: 3px solid #4494bb;
+    border-radius: 3px;
+    padding: 10px 15px;
+}
+
+/*-----Fonctionnement--------*/
+
+#Fonctionnement{
+    width: 100%;
+    margin: auto;
+    background:#fffff5;
+    border-bottom: 1px solid;
+    padding: 50px 0;
+}
+
+.imageFonctionnement {
+    max-width: 1500px;
+    width: 100%;
+    height: auto;
+    position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    opacity: 1;
+
+}
+.imgSlider {
+    border: 1px solid black;
+}
+.bouton-droit {
+    align-self: flex-end;
+    right: -30px;
+}
+
+.fa-angle-right:before {
+    margin-left: 12px;
+    font-size: 25px;
+}
+
+.bouton-gauche {
+    align-self: flex-start;
+    align-content: flex-start;
+    left: -30px;
+}
+
+.fa-angle-left:before {
+    margin-left: 35px;
+    font-size: 25px;
+}
+
+.bouton {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    height: 60px;
+    width: 60px;
+    border-radius: 10%;
+    text-decoration: none;
+    cursor: pointer;
+    top: 50%;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bouton:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.btnPlayStop {
+    width: 100px;
+    background-color: #fffff5;
+    color: #020202;
+    font-size: 1rem;
+    border: none;
+    padding: 10px;
+}
+
+
+
+.btnPlayStop:hover {
+    background-color: rgb(189, 21, 21);
+}
+
+.playStopButton {
+    text-align: center;
+}
+
+#trait-slider {
+    position: absolute;
+    width: 10%;
+    top: 99.3%;
+    border: 2px solid #5badd3;
 }
 
 #mapid {
     height: 90vh !important;
     width: 100% !important;
-}
-
-.item,
-.slider-img {
-    padding: 0px 5px 0px 0px
 }
 
 .logo-form {
