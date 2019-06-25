@@ -91,6 +91,15 @@ body {
 .imgSlider {
     border: 1px solid black;
 }
+  @media only screen and (max-device-width: 375px) {
+    nav span {
+        font-size: 1.7rem !important;
+    }
+    nav img {
+        width: 100px;
+        height: 60px;
+    }
+  }
 .bouton-droit {
     align-self: flex-end;
     right: -30px;
@@ -108,7 +117,7 @@ body {
 }
 
 .fa-angle-left:before {
-    margin-left: 35px;
+    margin-left: 31px;
     font-size: 25px;
 }
 
