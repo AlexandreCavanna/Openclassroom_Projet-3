@@ -13,6 +13,8 @@ form = {
     modalReservation: document.getElementById("modal-reservation"),
     reservationTime: document.getElementById("reservation-timer"),
     nomStation: document.getElementById("nom-station"),
+    nomForm: document.getElementById("name"),
+    prenomForm: document.getElementById("firstname"),
     formFooter: document.getElementById("form-footer"),
     mapLegend: document.getElementById("map-legend"),
     canvas: document.getElementById("canvas"),
@@ -38,7 +40,9 @@ form = {
             // Pour recommencer Ã  0 le decompte si l'on reserve un velib sur une autre station
             clearInterval(form.x);
 
-            sessionStorage.setItem("name", this.nomStation.textContent);
+            sessionStorage.setItem("nomStation", this.nomStation.textContent);
+            sessionStorage.setItem("name", this.nomForm.value);
+            sessionStorage.setItem("firstname", this.prenomForm.value);
 
             // Gestion des differents elements
             form.buttonSucess.style.display = "none";
@@ -96,7 +100,7 @@ form = {
         form.reservationTitle.classList.remove("text-center", "mb-0");
         form.reservationTime.style.display = "block";
         form.reservationTitle.textContent = " Votre réservation est validée !";
-        form.reservationTime.innerHTML = `Vous avez réservé 1 vélib à la station <span class="font-weight-bold">${sessionStorage.name}</span>. <br> Expire dans : <span class="font-weight-bold">${minutes} minute(s) et ${secondes} seconde(s)</span>.`
+        form.reservationTime.innerHTML = `Bonjour <span class="font-weight-bold">${sessionStorage.firstname} ${sessionStorage.name}</span> vous avez réservé 1 vélib à la station <span class="font-weight-bold">${sessionStorage.nomStation}</span>. <br> Expire dans : <span class="font-weight-bold">${minutes} minute(s) et ${secondes} seconde(s)</span>.`
         form.modalReservation.style.display = "inline-block";
     },
 
