@@ -22,7 +22,7 @@
   </head>
   <body>
     <nav class="navbar navbar-light bg-light">
-      <a class="d-flex align-items-center navbar-brand" href="#">
+      <a class="d-flex align-items-center navbar-brand" href="index.html">
       <img src="images/velo.png" width="120" height="77" class="d-inline-block align-center" alt="Vélo">
       <span class="h1 align-center pl-3">Easy Vélo</span>
       </a>
@@ -33,7 +33,13 @@
                 <div id="imgSlider">
                     <div id="textSlide"><span class="font-weight-bold">Bienvenue sur le site de réservation de velo de Lyon :</span> <br> Ce diaporama vous montre la façon d'utiliser la carte</div>
                     <figure class="imageFonctionnement">
-                        <img src="images/diapo1.png" alt="une image" class="imgSlider">
+                        <img sizes="(max-width: 1428px) 100vw, 1428px"
+                        srcset="
+                        images/diapo1_pwdbua_c_scale,w_200.png 200w,
+                        images/diapo1_pwdbua_c_scale,w_778.png 778w,
+                        images/diapo1_pwdbua_c_scale,w_1142.png 1142w,
+                        images/diapo1_pwdbua_c_scale,w_1428.png 1428w"
+                        src="images/diapo1_pwdbua_c_scale,w_1428.png"  alt="une image" class="imgSlider">
                         <div class="bouton bouton-gauche">
                             <a id="prev"><i class="fas fa-angle-left fa-2x"></i></a>
                         </div>
@@ -49,7 +55,7 @@
             </div>
         </section>
     
-      <div class="row">
+      <div class="row" style="margin-right: 0px;margin-left: 0px;">
         <div class="col-lg-8 col-md-12">
           <div id="mapid" style="height :100vh; width:80%;"></div>
           <button type="button" id="reset-map" class="btn btn-secondary btn-sm">Réinitialiser la carte</button>
