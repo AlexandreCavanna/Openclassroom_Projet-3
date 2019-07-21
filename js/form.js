@@ -37,6 +37,7 @@ form = {
             sessionStorage.setItem("firstname", this.prenomForm.value);
 
             // Gestion des differents elements
+            if (!this.prenomForm.value == "" && !this.nomForm.value == "") {
             form.buttonSucess.style.display = "none";
             form.sectionForm.style.display = "none";
             form.alertForm.style.display = "block";
@@ -50,6 +51,20 @@ form = {
 
             // On declenche le decompte de la reservation
             form.reservationTimer();
+            } else if (this.prenomForm.value == "" && this.nomForm.value == "") {
+                form.nomForm.style.borderColor = "red";
+                form.prenomForm.style.borderColor = "red";
+                alert("Un ou champs pour la réservation est manquant");
+            } else if (this.prenomForm.value == "") {
+                form.nomForm.style.borderColor = "initial";
+                form.prenomForm.style.borderColor = "red";
+                alert("Veuillez remplir votre Prénom");
+            }
+            else if (this.nomForm.value == "") {
+                form.prenomForm.style.borderColor = "initial";
+                form.nomForm.style.borderColor = "red";
+                alert("Veuillez remplir votre Nom");
+            }
         });
     },
     reservationTimer(dateEnCours) {

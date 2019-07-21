@@ -47,10 +47,15 @@ carte = {
                 var formFooter = document.getElementById("form-footer");
                 var mapLegend = document.getElementById("map-legend");
                 var buttonReserve = document.getElementById("button-reservation");
+                var reservationContainer = document.getElementById("reservation-container");
+                var reservationTitle = document.getElementById("reservation-title");
                 var buttonSucess = document.getElementById("reservation-success");
                 var buttonDelete = document.getElementById("canvas-delete");
                 var sectionReserve = document.getElementById("section-reservation");
                 sectionReserve.style.display = "none";
+                reservationContainer.classList.remove("alert-danger");
+                reservationContainer.classList.add("alert-secondary");
+                reservationTitle.textContent = "Aucune réservation en cours";
                 buttonDelete.style.display = "none";
                 buttonSucess.style.display = "none";
                 buttonReserve.style.display = "inline-block";
