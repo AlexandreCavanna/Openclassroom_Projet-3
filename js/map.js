@@ -52,6 +52,7 @@ carte = {
                 var buttonSucess = document.getElementById("reservation-success");
                 var buttonDelete = document.getElementById("canvas-delete");
                 var sectionReserve = document.getElementById("section-reservation");
+                var modalReservation = document.getElementById("modal-reservation");
                 sectionReserve.style.display = "none";
                 reservationContainer.classList.remove("alert-danger");
                 reservationContainer.classList.add("alert-secondary");
@@ -107,6 +108,12 @@ carte = {
                 } else {
                     formFooter.style.display = "block";                 
                 }
+                if (reservationContainer.classList.contains("alert-success")) {
+                    document.querySelector("#modalReservation > div > div > div.modal-body").textContent = "Avant de faire une autre réservation veuillez annuler la précédente.";
+                    
+                    modalReservation.click();
+                }
+
                 
                 
             })

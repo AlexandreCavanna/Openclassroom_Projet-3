@@ -19,14 +19,19 @@ form = {
     buttonResetMap: document.getElementById("reset-map"),
     showReservation() {
         this.buttonReserve.addEventListener("click", function () {
+            if (form.reservationContainer.classList.contains("alert-success")) {
+                document.querySelector("#modalReservation > div > div > div.modal-body").textContent = "Avant de faire une autre réservation veuillez annuler la précédente.";
+                form.modalReservation.click();
+            } else {
             form.sectionReserve.style.display = "block";
             form.mapLegend.style.display = "none";
             form.buttonReserve.style.display = "none";
             form.buttonErase.style.display = "inline-block";
-             // On recupere les valeurs en local storage des champs nom et prenom pour les afficher
-             // lorsque que l'on ouvre son navigateur
+            // On recupere les valeurs en local storage des champs nom et prenom pour les afficher
+            // lorsque que l'on ouvre son navigateur
             form.prenomForm.value = localStorage.getItem("firstname");
             form.nomForm.value = localStorage.getItem("name");
+            }
         });
     },
     reservationSuccess() {
@@ -42,19 +47,19 @@ form = {
             localStorage.setItem("name", this.nomForm.value);
             // Gestion des differents elements
             if (!this.prenomForm.value == "" && !this.nomForm.value == "") {
-            form.buttonSucess.style.display = "none";
-            form.sectionForm.style.display = "none";
-            form.alertForm.style.display = "block";
-            form.alertForm.innerHTML = `
+                form.buttonSucess.style.display = "none";
+                form.sectionForm.style.display = "none";
+                form.alertForm.style.display = "block";
+                form.alertForm.innerHTML = `
                 <i class="fas fa-exclamation-triangle"></i>
                 Si vous voulez réserver un autre Vélib à une autre station, <span class="font-weight-bold">veuillez annuler la réservation en cours</span>.
             `;
-            form.alertForm.classList.add("alert-danger");
-            form.alertForm.classList.remove("alert-warning");
-            form.mapLegend.style.display = "block";
+                form.alertForm.classList.add("alert-danger");
+                form.alertForm.classList.remove("alert-warning");
+                form.mapLegend.style.display = "block";
 
-            // On declenche le decompte de la reservation
-            form.reservationTimer();
+                // On declenche le decompte de la reservation
+                form.reservationTimer();
             } else if (this.prenomForm.value == "" && this.nomForm.value == "") {
                 form.nomForm.style.borderColor = "red";
                 form.prenomForm.style.borderColor = "red";
@@ -69,17 +74,17 @@ form = {
                 form.nomForm.style.borderColor = "red";
                 alert("Veuillez remplir votre Nom");
             }
-        });
+            });
     },
     reservationTimer(dateEnCours) {
         // On cree une variable "dateFin" vide
         let dateFin;
-        
+
         // On utilise la valeur "dateEnCours" dans la variable "dateFin"
-        if(dateEnCours) {
+        if (dateEnCours) {
             dateFin = new Date().getTime() + Number(dateEnCours);
-         // Si dateEnCours est vide on stocke la date actuel + 20 minutes
-        } else { 
+            // Si dateEnCours est vide on stocke la date actuel + 20 minutes
+        } else {
             dateFin = new Date().getTime() + 1200000; // 1 200 000 = 20 minutes en millisecondes
         }
 
@@ -91,14 +96,14 @@ form = {
             // On transforme les millisecondes en minutes et secondes
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             let secondes = Math.floor((distance % (1000 * 60)) / 1000);
-            
+
             // On stock la date actuel en milliseconde
             sessionStorage.setItem("temps", distance);
 
             // Permet d'afficher la reservation dans le container de la reservation en cours
             form.reservationSuccessDisplay(minutes, secondes);
 
-           // Si le decompte arrive Ã  0, la reservation expire
+            // Si le decompte arrive Ã  0, la reservation expire
             if (distance < 0) {
                 form.expiredReservation();
             }
@@ -167,7 +172,7 @@ form = {
         let dateEnCours = sessionStorage.getItem("temps");
 
         // Si la valeur de "temps" est supÃ©rieur Ã  0, on reprends la rÃ©servation en cours
-        if (dateEnCours > 0 ) {    
+        if (dateEnCours > 0) {
             // On relance le timer avec la date Ã  laquelle elle s'est arrÃªtÃ©
             form.reservationTimer(dateEnCours);
         }
