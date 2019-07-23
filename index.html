@@ -1,212 +1,234 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <!-- Required meta tags --->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
-      integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
-      crossorigin="" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css"
-      type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-light bg-light">
-      <a class="d-flex align-items-center navbar-brand" href="index.html">
-      <img src="images/velo.png" width="120" height="77" class="d-inline-block align-center" alt="Vélo">
-      <span class="h1 align-center pl-3">Easy Vélo</span>
-      </a>
-    </nav>
-    <div class="container-fluid">
-    <section id="Fonctionnement">
+   <head>
+      <!-- Required meta tags --->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+         integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+         crossorigin="" />
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+      <link rel="stylesheet" href="//unpkg.com/leaflet-gesture-handling/dist/leaflet-gesture-handling.min.css"
+         type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+      <link rel="stylesheet" href="css/style.css">
+      <title>Hello, world!</title>
+   </head>
+   <body>
+      <nav class="navbar fixed-top navbar-expand-lg">
+         <a class="d-flex align-items-center navbar-brand" href="index.html">
+         <img src="images/velo.png" width="120" height="77" class="d-inline-block align-center" alt="Vélo">
+         <span class="h1 align-center pl-3">Easy Vélo</span>
+         </a>
+         <ul class="navbar-nav">
+            <li class="nav-item">
+               <a class="nav-link" href="#" data-scroll="Fonctionnement">Comment ça fonctionne ?</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="#reservation">Réserve ton Vélib !</a>
+            </li>
+         </ul>
+      </nav>
+      <div class="container-fluid">
+         <section id="Fonctionnement">
             <div id="diaporama">
-                <div id="imgSlider">
-                    <div id="textSlide"><span class="font-weight-bold">Bienvenue sur le site de réservation de velo de Lyon :</span> <br> Ce diaporama vous montre la façon d'utiliser la carte</div>
-                    <figure class="imageFonctionnement">
-                        <img sizes="(max-width: 1428px) 100vw, 1428px"
+               <div id="imgSlider">
+                  <div id="textSlide"><span class="font-weight-bold">Bienvenue sur le site de réservation de velo de Lyon :</span> <br> Ce diaporama vous montre la façon d'utiliser la carte</div>
+                  <figure class="imageFonctionnement">
+                     <img sizes="(max-width: 1428px) 100vw, 1428px"
                         srcset="
                         images/diapo1_pwdbua_c_scale,w_200.png 200w,
                         images/diapo1_pwdbua_c_scale,w_778.png 778w,
                         images/diapo1_pwdbua_c_scale,w_1142.png 1142w,
                         images/diapo1_pwdbua_c_scale,w_1428.png 1428w"
                         src="images/diapo1_pwdbua_c_scale,w_1428.png"  alt="une image" class="imgSlider">
-                        <div class="bouton bouton-gauche">
-                            <a id="prev"><i class="fas fa-angle-left fa-2x"></i></a>
-                        </div>
-                        <div class="bouton bouton-droit">
-                            <a id="next"><i class="fas fa-angle-right fa-2x"></i></a>
-                        </div>
-                    </figure>
-                </div>
-                <div class="playStopButton">
-                    <button class="play btnPlayStop"><i class="fa fa-play fa-2x"></i></button>
-                    <button class="stop btnPlayStop"><i class="fas fa-pause fa-2x"></i></button>
-                </div>
+                     <div class="bouton bouton-gauche">
+                        <a id="prev"><i class="fas fa-angle-left fa-2x"></i></a>
+                     </div>
+                     <div class="bouton bouton-droit">
+                        <a id="next"><i class="fas fa-angle-right fa-2x"></i></a>
+                     </div>
+                  </figure>
+               </div>
+               <div class="playStopButton">
+                  <button class="play btnPlayStop"><i class="fa fa-play fa-2x"></i></button>
+                  <button class="stop btnPlayStop"><i class="fas fa-pause fa-2x"></i></button>
+               </div>
             </div>
-        </section>
-    
-      <div class="row" style="margin-right: 0px;margin-left: 0px;">
-        <div class="col-lg-8 col-md-12">
-          <div id="mapid" style="height :100vh; width:80%;"></div>
-          <button type="button" id="reset-map" class="btn btn-secondary btn-sm">Réinitialiser la carte</button>
-        </div>
-        <div class="col-lg-4 col-md-12 bg-light">
-          <div id="section-form" class="card text-center my-3 ml-3 mr-3 text-center" style="display:none;">
-            <!-- Nom de la station de vélo -->
-            <div class="card-header">
-              <h3 id="nom-station" class="mb-0 font-weight-bold">Nom de la station</h3>
+         </section>
+         <section class="py-5">
+            <div class="container">
+               <h1>Bienvenue sur <span class="text-danger font-weight-bold">Easy Vélo</span> !</h1>
+               <p class="lead">
+                  Votre service de location de vélib(s) 7j/7, 24h/24 dans toutes les stations sur la Ville de <span class="text-danger font-weight-bold">Lyon</span> ! 
+                  <br>Retrouvez toutes les étapes ci-dessus pour commencer votre réservation !
+               </p>
             </div>
-            <div class="card-body">
-              <div class="col">
-                <i class="fas fa-clock text-danger logo-form"></i>
-                <p class="mt-2 mb-0">Ouverte / Fermer</p>
-              </div>
-              <hr>
-              <div class="col">
-                <i class="fas fa-map-marker-alt text-danger logo-form"></i>
-                <p class="mt-2 mb-0">Adresse de la station</p>
-              </div>
-              <hr>
-              <div class="col">
-                <i class="fas fa-bicycle text-danger logo-form"></i>
-                <p>Nombre de Vélib(s) disponibles</p>
-              </div>
-              <div id="section-reservation" style="display: none;">
-                <hr>
-                <div class="col">
-                  <label for="name">Nom :</label>
-                  <input type="text" id="name" name="name" required minlength="4">
-                  <label for="firstname">Prénom :</label>
-                  <input type="text" id="firstname" name="firstname" required minlength="4">
-                </div>
-                <hr>
-                <div class="col">
-                  <i class="fas fa-edit text-primary logo-form"></i>
-                  <p class="mb-0 mt-2">Signature</p>
-                  <canvas id="canvas" style="height: 100px; width: 310px; border:1px solid #000000;"
-                    width="310" height="100"></canvas>
-                </div>
-              </div>
+         </section>
+         <div class="row" style="margin-right: 0px;margin-left: 0px;">
+            <div class="col-lg-8 col-md-12">
+               <div id="mapid" style="height :100vh; width:80%;"></div>
+               <button type="button" id="reset-map" class="btn btn-secondary btn-sm">Réinitialiser la carte</button>
             </div>
-            <div id="form-footer" class="card-footer text-muted" style="display: block;">
-              <button id="button-reservation" class="btn btn-outline-primary btn-sm font-weight-bold"
-                style="display: inline-block;">Réserver</button>
-              <button id="reservation-success" class="btn btn-outline-success btn-sm font-weight-bold"
-                style="display: none;">Valider</button>
-              <button id="canvas-delete" class="btn btn-outline-danger btn-sm font-weight-bold "
-                style="display: none;">Effacer</button>
-            </div>
-          </div>
-          <div id="alert-form" class="alert alert-warning my-3 ml-3 mr-3" role="alert">
-            <i class="fas fa-exclamation-triangle"></i>
-            Veuillez sélectionner une station !
-          </div>
-          <div id="map-legend" class="card my-3 ml-3 mr-3">
-            <div class="card-header text-center">
-              <h4 class="mb-0 font-weight-bold">Légende</h4>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png" alt="Marker bleu">
-                Stations disposant de plusieurs Vélibs
-              </li>
-              <li class="list-group-item">
-                <img src="images/red_marker.png" alt="Marker rouge" height="41" width="35">
-                Stations n'ayant plus aucun Vélib
-              </li>
-              <li class="list-group-item">
-                <div class="row">
-                  <div class="col-3">
-                    <img src="images/green_cluster.png" alt="Cercle vert">
-                    <img src="images/yellow_cluster.png" alt="Cercle jaune">
-                    <img src="images/orange_cluster.png" alt="Cercle orange">
+            <div class="col-lg-4 col-md-12 bg-light" id="reservation">
+               <div id="section-form" class="card text-center my-3 ml-3 mr-3 text-center" style="display:none;">
+                  <!-- Nom de la station de vélo -->
+                  <div class="card-header">
+                     <h3 id="nom-station" class="mb-0 font-weight-bold">Nom de la station</h3>
                   </div>
-                  <div class="col-9">
-                    Regroupement de stations suivant leur nombre
+                  <div class="card-body">
+                     <div class="col">
+                        <i class="fas fa-clock text-danger logo-form"></i>
+                        <p class="mt-2 mb-0">Ouverte / Fermer</p>
+                     </div>
+                     <hr>
+                     <div class="col">
+                        <i class="fas fa-map-marker-alt text-danger logo-form"></i>
+                        <p class="mt-2 mb-0">Adresse de la station</p>
+                     </div>
+                     <hr>
+                     <div class="col">
+                        <i class="fas fa-bicycle text-danger logo-form"></i>
+                        <p>Nombre de Vélib(s) disponibles</p>
+                     </div>
+                     <div id="section-reservation" style="display: none;">
+                        <hr>
+                        <div class="col">
+                           <div id="input-Form">
+                              <div class="col">
+                                 <label for="name">Nom :</label>
+                                 <input class="input-Nom_Prenom"type="text" id="name" name="name" required minlength="4">
+                              </div>
+                              <div class="col" id="inputPrenom">
+                                 <label for="firstname">Prénom :</label>
+                                 <input class="input-Nom_Prenom"type="text" id="firstname" name="firstname" required minlength="4">
+                              </div>
+                           </div>
+                        </div>
+                        <hr>
+                        <div class="col">
+                           <i class="fas fa-edit text-primary logo-form"></i>
+                           <p class="mb-0 mt-2">Signature</p>
+                           <canvas id="canvas" style="height: 100px; width: 310px; border:1px solid #000000;"
+                              width="310" height="100"></canvas>
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="container">
-            <div id="reservation-container" class="alert alert-secondary" role="alert">
-              <h4 id="reservation-title" class="alert-heading text-center mb-0">Aucune réservation en cours
-              </h4>
-              <p id="reservation-timer" style="display: none;"></p>
+                  <div id="form-footer" class="card-footer text-muted" style="display: block;">
+                     <button id="button-reservation" class="btn btn-outline-primary btn-sm font-weight-bold"
+                        style="display: inline-block;">Réserver</button>
+                     <button id="reservation-success" class="btn btn-outline-success btn-sm font-weight-bold"
+                        style="display: none;">Valider</button>
+                     <button id="canvas-delete" class="btn btn-outline-danger btn-sm font-weight-bold "
+                        style="display: none;">Effacer</button>
+                  </div>
+               </div>
+               <div id="alert-form" class="alert alert-warning my-3 ml-3 mr-3" role="alert">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  Veuillez sélectionner une station !
+               </div>
+               <div id="map-legend" class="card my-3 ml-3 mr-3">
+                  <div class="card-header text-center">
+                     <h4 class="mb-0 font-weight-bold">Légende</h4>
+                  </div>
+                  <ul class="list-group list-group-flush">
+                     <li class="list-group-item">
+                        <img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png" alt="Marker bleu">
+                        Stations disposant de plusieurs Vélibs
+                     </li>
+                     <li class="list-group-item">
+                        <img src="images/red_marker.png" alt="Marker rouge" height="41" width="35">
+                        Stations n'ayant plus aucun Vélib
+                     </li>
+                     <li class="list-group-item">
+                        <div class="row">
+                           <div class="col-3">
+                              <img src="images/green_cluster.png" alt="Cercle vert">
+                              <img src="images/yellow_cluster.png" alt="Cercle jaune">
+                              <img src="images/orange_cluster.png" alt="Cercle orange">
+                           </div>
+                           <div class="col-9">
+                              Regroupement de stations suivant leur nombre
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+               <div class="container">
+                  <div id="reservation-container" class="alert alert-secondary" role="alert">
+                     <h4 id="reservation-title" class="alert-heading text-center mb-0">Aucune réservation en cours
+                     </h4>
+                     <p id="reservation-timer" style="display: none;"></p>
+                  </div>
+                  <div class="col text-center mb-3">
+                     <!-- Button trigger modal -->
+                     <a class="btn btn-danger font-weight-bold text-white" data-toggle="modal"
+                        data-target="#modalReservation" style="cursor: pointer; display: none;"
+                        id="modal-reservation">
+                     Annuler la réservation
+                     </a>
+                  </div>
+               </div>
             </div>
-            <div class="col text-center mb-3">
-              <!-- Button trigger modal -->
-              <a class="btn btn-danger font-weight-bold text-white" data-toggle="modal"
-                data-target="#modalReservation" style="cursor: pointer; display: none;"
-                id="modal-reservation">
-              Annuler la réservation
-              </a>
+         </div>
+      </div>
+      <div class="modal fade" id="modalReservation" tabindex="-1" role="dialog" aria-labelledby="modalReservation"
+         style="display: none;" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header red-lighten-1 text-white">
+                  <h5 class="modal-title" id="exampleModalLabel">Annulation d'une réservation</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  Êtes-vous sûr de vouloir annuler la réservation en cours ?
+               </div>
+               <div class="modal-footer">
+                  <a id="delete-reservation" data-dismiss="modal" class="btn btn-success text-white"
+                     style="cursor: pointer;">Oui</a>
+                  <a class="btn btn-secondary text-white" data-dismiss="modal" style="cursor: pointer;">Non</a>
+               </div>
             </div>
-          </div>
-        </div>
+         </div>
       </div>
-    </div>
-    <div class="modal fade" id="modalReservation" tabindex="-1" role="dialog" aria-labelledby="modalReservation"
-      style="display: none;" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header red-lighten-1 text-white">
-            <h5 class="modal-title" id="exampleModalLabel">Annulation d'une réservation</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Êtes-vous sûr de vouloir annuler la réservation en cours ?
-          </div>
-          <div class="modal-footer">
-            <a id="delete-reservation" data-dismiss="modal" class="btn btn-success text-white"
-              style="cursor: pointer;">Oui</a>
-            <a class="btn btn-secondary text-white" data-dismiss="modal" style="cursor: pointer;">Non</a>
-          </div>
-        </div>
+      <!-- Canvas pour signer la réservation -->
+      <canvas id="canvas" width="310" height="100" style="display: none;"></canvas>
+      <!-- Zone des boutons de la fenêtre d'informations -->
+      <div id="boutons_formulaire" style="display: none;">
+         <!-- Bouton pour Effacer le contenu du Canvas -->
+         <input type="button" value="Effacer" id="effacer">
+         <!-- Bouton Valider -->
+         <input type="button" id="bouton_valider" value="Valider">
       </div>
-    </div>
-    <!-- Canvas pour signer la réservation -->
-    <canvas id="canvas" width="310" height="100" style="display: none;"></canvas>
-    <!-- Zone des boutons de la fenêtre d'informations -->
-    <div id="boutons_formulaire" style="display: none;">
-      <!-- Bouton pour Effacer le contenu du Canvas -->
-      <input type="button" value="Effacer" id="effacer">
-      <!-- Bouton Valider -->
-      <input type="button" id="bouton_valider" value="Valider">
-    </div>
-    </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
-      integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
-    <script src="js/ajax.js"></script>
-    <script src="js/JcdecauxObjet.js"></script>
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
-      integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
-      crossorigin=""></script>
-    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
-    <script src="//unpkg.com/leaflet-gesture-handling"></script>
-    <script src="js/map.js"></script>
-    <script src="js/canvas.js"></script>
-    <script src="js/form.js"></script>
-    <script src="js/slider.js"></script>
-    <script src="js/main.js" async></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
-  </body>
+      </div>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
+         integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+      <script src="js/ajax.js"></script>
+      <script src="js/JcdecauxObjet.js"></script>
+      <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+         integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+         crossorigin=""></script>
+      <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js"></script>
+      <script src="//unpkg.com/leaflet-gesture-handling"></script>
+      <script src="js/map.js"></script>
+      <script src="js/canvas.js"></script>
+      <script src="js/form.js"></script>
+      <script src="js/slider.js"></script>
+      <script src="js/main.js" async></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+         crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+         crossorigin="anonymous"></script>
+   </body>
 </html>

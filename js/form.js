@@ -9,8 +9,6 @@ form = {
     alertForm: document.getElementById("alert-form"),
     reservationContainer: document.getElementById("reservation-container"),
     reservationTitle: document.getElementById("reservation-title"),
-    reservationTimer: document.getElementById("reservation-timer"),
-    modalReservation: document.getElementById("modal-reservation"),
     reservationTime: document.getElementById("reservation-timer"),
     nomStation: document.getElementById("nom-station"),
     nomForm: document.getElementById("name"),
@@ -25,17 +23,23 @@ form = {
             form.mapLegend.style.display = "none";
             form.buttonReserve.style.display = "none";
             form.buttonErase.style.display = "inline-block";
+             // On recupere les valeurs en local storage des champs nom et prenom pour les afficher
+             // lorsque que l'on ouvre son navigateur
+            form.prenomForm.value = localStorage.getItem("firstname");
+            form.nomForm.value = localStorage.getItem("name");
         });
     },
     reservationSuccess() {
         this.buttonSucess.addEventListener("click", () => {
             // Pour recommencer Ã  0 le decompte si l'on reserve un velib sur une autre station
             clearInterval(form.x);
-
+            // Gestion session et local storage
             sessionStorage.setItem("nameStation", this.nomStation.textContent);
             sessionStorage.setItem("name", this.nomForm.value);
             sessionStorage.setItem("firstname", this.prenomForm.value);
-
+            sessionStorage.setItem("signature", this.canvas.toDataURL('image/jpeg', 0.5));
+            localStorage.setItem("firstname", this.prenomForm.value);
+            localStorage.setItem("name", this.nomForm.value);
             // Gestion des differents elements
             if (!this.prenomForm.value == "" && !this.nomForm.value == "") {
             form.buttonSucess.style.display = "none";
