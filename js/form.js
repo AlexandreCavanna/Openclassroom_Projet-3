@@ -23,14 +23,14 @@ form = {
                 document.querySelector("#modalReservation > div > div > div.modal-body").textContent = "Avant de faire une autre réservation veuillez annuler la précédente.";
                 form.modalReservation.click();
             } else {
-            form.sectionReserve.style.display = "block";
-            form.mapLegend.style.display = "none";
-            form.buttonReserve.style.display = "none";
-            form.buttonErase.style.display = "inline-block";
-            // On recupere les valeurs en local storage des champs nom et prenom pour les afficher
-            // lorsque que l'on ouvre son navigateur
-            form.prenomForm.value = localStorage.getItem("firstname");
-            form.nomForm.value = localStorage.getItem("name");
+                form.sectionReserve.style.display = "block";
+                form.mapLegend.style.display = "none";
+                form.buttonReserve.style.display = "none";
+                form.buttonErase.style.display = "inline-block";
+                // On recupere les valeurs en local storage des champs nom et prenom pour les afficher
+                // lorsque que l'on ouvre son navigateur
+                form.prenomForm.value = localStorage.getItem("firstname");
+                form.nomForm.value = localStorage.getItem("name");
             }
         });
     },
@@ -74,7 +74,7 @@ form = {
                 form.nomForm.style.borderColor = "red";
                 alert("Veuillez remplir votre Nom");
             }
-            });
+        });
     },
     reservationTimer(dateEnCours) {
         // On cree une variable "dateFin" vide
@@ -119,7 +119,11 @@ form = {
         form.reservationTime.innerHTML = `Bonjour <span class="font-weight-bold">${sessionStorage.firstname} ${sessionStorage.name}</span> vous avez réservé 1 vélib à la station <span class="font-weight-bold">${sessionStorage.nameStation}</span>. <br> Expire dans : <span class="font-weight-bold">${minutes} minute(s) et ${secondes} seconde(s)</span>.`
         form.modalReservation.style.display = "inline-block";
     },
-
+    modalReservationMsg() {
+        document.querySelector("#modalReservation").addEventListener("click", () => {
+            document.querySelector("#modalReservation > div > div > div.modal-body").textContent = "Êtes-vous sûr de vouloir annuler la réservation en cours ?";
+        })
+    },
     /**
      * Permet d'annuler une rÃ©servation
      */
@@ -187,6 +191,7 @@ form = {
         form.showReservation();
         form.reservationSuccess();
         form.deleteReservation();
+        form.modalReservationMsg();
         form.webStorage();
     }
 }

@@ -110,8 +110,10 @@ carte = {
                 }
                 if (reservationContainer.classList.contains("alert-success")) {
                     document.querySelector("#modalReservation > div > div > div.modal-body").textContent = "Avant de faire une autre réservation veuillez annuler la précédente.";
-                    
+                    document.querySelector("#alert-form").style.display = "block";
                     modalReservation.click();
+                } else {
+                    document.querySelector("#alert-form").style.display = "none";
                 }
 
                 
