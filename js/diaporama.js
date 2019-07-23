@@ -9,12 +9,12 @@ diaporama = {
     imagesTabSmall : ['images/diapo1s.png', 'images/diapo2s.png', 'images/diapo3s.png', 'images/diapo4s.png', 'images/diapo5s.png', 'images/diapo6s.png'],
     textTab :
       [
-        '<span class="font-weight-bold">Bienvenue sur le site de réservation de velo de Lyon:</span> <br> Ce diaporama vous montre la façon d\'utiliser la carte',
-        '<span class="font-weight-bold">Choissisez une station:</span> <br> Sélectionner une station en cliquant sur un markeur pour afficher ses informations et commencer votre réservation. ',
-        '<span class="font-weight-bold">Bouton réserver:</span> <br> Une fois le markeur cliqué, cliquez sur le bouton réserver. ',
-        '<span class="font-weight-bold">Formulaire:</span> <br> Remplissez le formulaire. ',
-        '<span class="font-weight-bold">Confirmation et réservation de votre vélo:</span> <br> Après avoir signé, confirmez votre réservation en cliquant sur "Valider".',
-        '<span class="font-weight-bold">Réservation réalisée:</span> <br> Votre vélo est réservé pendant 20min mais vous pouvez annuler à tout moment en cliquant sur "Annuler la réservation".',
+        '<span class="font-weight-bold">Bienvenue sur le site de réservation de velo de Lyon :</span> <br> Ce diaporama vous montre la façon d\'utiliser la carte',
+        '<span class="font-weight-bold">Choissisez une station :</span> <br> Sélectionner une station en cliquant sur un markeur pour afficher ses informations et commencer votre réservation. ',
+        '<span class="font-weight-bold">Bouton réserver :</span> <br> Une fois le markeur cliqué, cliquez sur le bouton réserver. ',
+        '<span class="font-weight-bold">Formulaire :</span> <br> Remplissez le formulaire. ',
+        '<span class="font-weight-bold">Confirmation et réservation de votre vélo :</span> <br> Après avoir signé, confirmez votre réservation en cliquant sur "Valider".',
+        '<span class="font-weight-bold">Réservation réalisée :</span> <br> Votre vélo est réservé pendant 20min mais vous pouvez annuler à tout moment en cliquant sur "Annuler la réservation".',
       ],
     counter : 0,
     interval : 0,

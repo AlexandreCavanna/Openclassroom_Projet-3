@@ -1,186 +1,217 @@
 /* API JCDecaux : 6a44c41c86a1d2eb545763e7342cca6867d25c75 */
+
 html,
 body {
-    font-family: 'Comfortaa', cursive;
+	font-family: 'Comfortaa', cursive;
+}
+
+a span {
+	color: #FFFAFF;
+}
+
+a img {
+	background: linear-gradient(to right, #3e70cc 33%, #FFFAFF 70%, #D8315B 33%);
+	box-shadow: inset 0px 0px 14px 9px rgb(0, 0, 0);
+	border: 2px solid rgba(255, 255, 255, .6);
+}
+
+.navbar-nav {
+	flex-direction: row;
 }
 
 .navbar {
-    box-shadow: 1px 5px 1px rgb(0, 0, 0);
-}
-#textSlide{
-    text-align:center;
-    padding: 20px;
-}
-.container-fluid {
-    padding: 0;
-}
-.slider{
-    margin: auto;
-    width: 80%;
-    background: #fffff5;
-    border-bottom: 1px dotted;
+	box-shadow: inset 0px 0px 20px 1px rgb(0, 0, 0);
+	background-color: #0A2463
 }
 
+.nav-link {
+	padding: 8px !important;
+	color: #3E92CC !important;
+}
+
+.nav-link:hover {
+	color: black !important;
+	background-color: black !important;
+	box-shadow: inset 0px 0px 20px 20px #FFFAFF;
+	transition: 0.6s ease-in-out;
+}
+
+#textSlide {
+	color: #FFFAFF;
+	text-align: center;
+	padding: 20px;
+}
+
+.container-fluid {
+	padding: 0;
+	position: relative;
+	top: 70px;
+}
+
+.slider {
+	margin: auto;
+	width: 80%;
+	background: #ffffff;
+	border-bottom: 1px dotted;
+}
 
 #text-slider {
-    position: relative;
-    font-style: normal;
-    margin-bottom: 100px;
-    text-align: center;
-    padding: 50px;
-    margin: 0;
+	position: relative;
+	font-style: normal;
+	margin-bottom: 100px;
+	text-align: center;
+	padding: 50px;
+	margin: 0;
 }
 
 #text-slider h1 {
-    font-size: 2em;
-    margin: 0;
+	font-size: 2em;
+	margin: 0;
 }
 
 #text-slider p {
-    margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 
-
-
-#titre > .color{
-    color: #bd1515;
+#titre>.color {
+	color: #bd1515;
 }
 
 #text-slider a {
-    border-radius: 20px;
-    text-decoration: none;
-    padding: 5px 30px;
-    background-color: #194965;
-    color: white;
+	border-radius: 20px;
+	text-decoration: none;
+	padding: 5px 30px;
+	background-color: #194965;
+	color: white;
 }
 
 #text-slider a:hover {
-    background-color: rgba(255, 140, 0, 0.63);
+	background-color: rgba(255, 140, 0, 0.63);
 }
 
 #bouton-info {
-    color: white;
-    background-color: #5badd3;
-    text-decoration: none;
-    border-bottom: 3px solid #4494bb;
-    border-radius: 3px;
-    padding: 10px 15px;
+	color: white;
+	background-color: #5badd3;
+	text-decoration: none;
+	border-bottom: 3px solid #4494bb;
+	border-radius: 3px;
+	padding: 10px 15px;
 }
+
 
 /*-----Fonctionnement--------*/
 
-#Fonctionnement{
-    width: 100%;
-    margin: auto;
-    background-color: #08AEEA;
-    background-image: linear-gradient(0deg, #08AEEA 0%, #2AF598 100%);
-    border-bottom: 1px solid;
-    padding: 50px 0;
+#Fonctionnement {
+	width: 100%;
+	margin: auto;
+	background-color: #D8315B;
+	border-bottom: 1px solid;
+	padding: 50px 0;
 }
 
 .imageFonctionnement {
-    max-width: 1500px;
-    width: 100%;
-    height: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    margin: 0 auto;
-    margin-bottom: 20px;
-    opacity: 1;
+	max-width: 1500px;
+	width: 100%;
+	height: auto;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	opacity: 1;
+}
 
-}
 .imgSlider {
-    border: 1px solid black;
-    transition: 1s ease-in-out;
+	border: 1px solid black;
+	transition: 1s ease-in-out;
 }
-  @media only screen and (max-device-width: 375px) {
-    nav span {
-        font-size: 1.7rem !important;
-    }
-    nav img {
-        width: 100px;
-        height: 60px;
-    }
-  }
+
+@media only screen and (max-device-width: 375px) {
+	nav span {
+		font-size: 1.7rem !important;
+	}
+	nav img {
+		width: 100px;
+		height: 60px;
+	}
+}
+
 .bouton-droit {
-    align-self: flex-end;
-    right: -30px;
+	align-self: flex-end;
+	right: -30px;
 }
 
 .fa-angle-right:before {
-    margin-left: 12px;
-    font-size: 25px;
+	margin-left: 12px;
+	font-size: 25px;
 }
 
 .bouton-gauche {
-    align-self: flex-start;
-    align-content: flex-start;
-    left: -30px;
+	align-self: flex-start;
+	align-content: flex-start;
+	left: -30px;
+	top: 30px;
 }
 
 .fa-angle-left:before {
-    margin-left: 31px;
-    font-size: 25px;
+	margin-left: 31px;
+	font-size: 25px;
 }
 
 .bouton {
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.4);
-    color: white;
-    height: 60px;
-    width: 60px;
-    border-radius: 10%;
-    text-decoration: none;
-    cursor: pointer;
-    top: 50%;
-    opacity: 0.7;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+	position: absolute;
+	background-color: rgba(0, 0, 0, 0.4);
+	color: white;
+	height: 60px;
+	width: 60px;
+	border-radius: 10%;
+	text-decoration: none;
+	cursor: pointer;
+	top: 45%;
+	opacity: 0.7;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .bouton:hover {
-    background: rgba(0, 0, 0, 0.8);
+	background: rgba(0, 0, 0, 0.8);
 }
 
 .btnPlayStop {
-    width: 100px;
-    background-color: #ffffff;
-    color: #020202;
-    font-size: 1rem;
-    border: none;
-    padding: 10px;
+	width: 100px;
+	background-color: #ffffff;
+	color: #020202;
+	font-size: 1rem;
+	border: none;
+	padding: 10px;
 }
 
-
-
 .btnPlayStop:hover {
-    background-color: #2AF598;
-    transition: 0.3s ease-in-out;
+	background-color: #3E92CC;
+	transition: 0.3s ease-in-out;
 }
 
 .playStopButton {
-    text-align: center;
+	text-align: center;
 }
 
 #trait-slider {
-    position: absolute;
-    width: 10%;
-    top: 99.3%;
-    border: 2px solid #5badd3;
+	position: absolute;
+	width: 10%;
+	top: 99.3%;
+	border: 2px solid #5badd3;
 }
 
 #mapid {
-    height: 90vh !important;
-    width: 100% !important;
+	height: 90vh !important;
+	width: 100% !important;
 }
 
 .logo-form {
-    font-size: 30px;
+	font-size: 30px;
 }
-
 
 .col,
 .col-1,
@@ -252,33 +283,83 @@ body {
 .col-xl-8,
 .col-xl-9,
 .col-xl-auto {
-    padding-right: 0px;
-    padding-left: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
 }
 
 #reset-map {
-    position: absolute;
-    z-index: 1000;
-    left: calc(50% - 75px);
-    top: 10px;
-    width: 175px;
+	position: absolute;
+	z-index: 1000;
+	left: calc(50% - 75px);
+	top: 10px;
+	width: 175px;
 }
 
 #zone_reservation {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 20%;
-    background-color: rgb(215, 210, 210);
-    box-shadow: 1px 1px 1px #3D4D65;
-    border-left: 3px solid #3D4D65;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 20%;
+	background-color: rgb(215, 210, 210);
+	box-shadow: 1px 1px 1px #3D4D65;
+	border-left: 3px solid #3D4D65;
 }
-canvas { 
-    display: block; 
-    margin: 0 auto; 
+
+.input-Nom_Prenom {
+	border: 1px solid black;
+	width: 180px;
 }
+
+#inputPrenom {
+	position: relative;
+	right: 12px;
+}
+
+@media (max-width: 375px) {
+	#canvas {
+		width: 210px !important;
+	}
+	.input-Nom_Prenom {
+		width: 150px;
+	}
+}
+
+@media (max-width: 425px) {
+	.bouton {
+		height: 30px;
+		width: 55px;
+	}
+	.fa-angle-left:before {
+		margin: 35px;
+		font-size: 20px;
+		position: relative;
+		bottom: 3px;
+	}
+	.fa-angle-right:before {
+		margin: -35px;
+		font-size: 20px;
+		position: relative;
+		bottom: 3px;
+		left: 45px
+	}
+}
+
+@media (min-width: 992px) {
+	#canvas {
+		width: 260px !important;
+	}
+	#input-form {
+		width: 200px;
+	}
+}
+
+canvas {
+	display: block;
+	margin: 0 auto;
+}
+
 .container-flex {
-    display: flex;
-    margin-top: 5px;
-    box-shadow: 1px -5px 0px rgb(0, 0, 0);
+	display: flex;
+	margin-top: 5px;
+	box-shadow: 1px -5px 0px rgb(0, 0, 0);
 }
