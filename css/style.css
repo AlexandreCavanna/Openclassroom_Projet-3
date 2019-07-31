@@ -300,12 +300,13 @@ a img {
 	box-shadow: 1px 1px 1px #3D4D65;
 	border-left: 3px solid #3D4D65;
 }
-
+#canvas {
+	width: 210px !important;
+}
 .input-Nom_Prenom {
 	border: 1px solid black;
-	width: 180px;
+	width: 150px;
 }
-
 #inputPrenom {
 	position: relative;
 	right: 12px;
