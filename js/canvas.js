@@ -33,18 +33,23 @@ createCanvas = {
     }
   },
 
-  getTouchPos(e) { // Pour avoir la position du doigt (Pour smartphone et tablette)
-    if (!e)
-      var e = event;
-    if (e.touches) {
-      if (e.touches.length == 1) {
-        var touch = e.touches[0];
-        createCanvas.touchX = touch.pageX - touch.target.offsetLeft;
-        createCanvas.touchY = touch.pageY - touch.target.offsetTop;
-      }
-    }
+  getTouchPos(canvas, touchEvent) { // Pour avoir la position du doigt (Pour smartphone et tablette)
+    const canvas = document.getElementById('canvas');
+    var rect = canvas.getBoundingClientRect();
+    return {
+      x: touchEvent.touches[0].clientX - rect.left,
+      y: touchEvent.touches[0].clientY - rect.top
+    };
   },
-
+// if (!e)
+    //   var e = event;
+    // if (e.touches) {
+    //   if (e.touches.length == 1) {
+    //     var touch = e.touches[0];
+    //     createCanvas.touchX = touch.pageX - touch.target.offsetLeft;
+    //     createCanvas.touchY = touch.pageY - touch.target.offsetTop;
+    //   }
+    // }
   drawLine(x, y) { // Pour dessiner des traits
     if (this.lastX == -1) { // Si c'est un nouveau chemin
       this.lastX = x; // Le premier point et le point du clic
