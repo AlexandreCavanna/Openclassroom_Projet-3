@@ -1,6 +1,8 @@
 createCanvas = {
   mouseX: 0, // Variables pour la position de la souris
   mouseY: 0,
+  touchX: 0,
+  touchY: 0,
   lastX: -1, // Variables pour la precedente position de la souris
   lastY: -1,
   mouseDown: false, // Variable pour verifer que le boutton de la souris soit appuyee pour commencer a  dessiner
