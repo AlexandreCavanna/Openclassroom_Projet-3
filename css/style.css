@@ -201,7 +201,7 @@ a img {
 }
 
 #mapid {
-	height: 90vh !important;
+	height: 100vh !important;
 	width: 100% !important;
 }
 
@@ -300,9 +300,6 @@ a img {
 	box-shadow: 1px 1px 1px #3D4D65;
 	border-left: 3px solid #3D4D65;
 }
-#canvas {
-	width: 210px !important;
-}
 .input-Nom_Prenom {
 	border: 1px solid black;
 	width: 150px;
@@ -335,9 +332,6 @@ a img {
 		ul.navbar-nav {
 			position: relative;
 			left: 200px;
-		}
-		#canvas {
-			width: 260px !important;
 		}
 		#input-form {
 			width: 200px;
