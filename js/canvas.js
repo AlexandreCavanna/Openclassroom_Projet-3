@@ -9,8 +9,40 @@ createCanvas = {
   initCanvas() { // Pour creer le canvas
     const canvas = document.getElementById('canvas');
     this.context = canvas.getContext('2d');
-    canvas.width = 310; // Largeur du canvas
-    canvas.height = 100; // Hauteur du canvas
+    var mqdefault = window.matchMedia("(max-width: 576px)");
+    var mqxs = window.matchMedia("(min-width: 576px)");
+    var mqsm = window.matchMedia("(min-width: 778px)");
+    var mqmd = window.matchMedia("(min-width: 992px)");
+    var mqlg = window.matchMedia("(min-width: 1200px)");
+    var mqlfullhd = window.matchMedia("(min-width: 1920px)");
+    var mql4k = window.matchMedia("(min-width: 2560px)");
+    if (mqdefault.matches) {mqdefault
+      canvas.width = 230; // Largeur du canvas
+      canvas.height = 300;// Hauteur du canvas
+    }
+    if (mqxs.matches) {
+      canvas.width = 500; // Largeur du canvas
+      canvas.height = 300;// Hauteur du canvas
+    } if (mqsm.matches) {
+      canvas.width = 700; // Largeur du canvas
+      canvas.height = 400; // Hauteur du canvas
+    } 
+    if (mqmd.matches) {
+      canvas.width = 310; // Largeur du canvas
+      canvas.height = 300; // Hauteur du canvas
+    }
+    if (mqlg.matches) {
+      canvas.width = 520; // Largeur du canvas
+      canvas.height = 400; // Hauteur du canvas
+    }
+    if (mqlfullhd.matches) {
+      canvas.width = 680; // Largeur du canvas
+      canvas.height = 400; // Hauteur du canvas
+    }
+    if (mql4k.matches) {
+      canvas.width = 900; // Largeur du canvas
+      canvas.height = 400; // Hauteur du canvas
+    }
     this.context.fillStyle = "#fff"; // Couleur de fond
     this.context.lineWidth = 2; // Epaisseur du trait
     this.context.strokeStyle = "black"; // Couleur du trait
@@ -19,26 +51,24 @@ createCanvas = {
     this.erase(); // Pour effacer le contenu du canvas
   },
 
-  getMousePos(e) { // Pour avoir la position de la souris
+  getEventPos(e) {
     if (!e)
       var e = event;
-    if (e.offsetX) {
-      this.mouseX = e.offsetX; // Position sur l'axe X
-      this.mouseY = e.offsetY; // Position sur l'axe Y
-    } else if (e.layerX) {
-      this.mouseX = e.layerX; // Retourne les coordonnees sur l'axe verticale sur l'event en cours
-      this.mouseY = e.layerY; // Retourne les coordonnees sur l'axe horizontale sur l'event en cours
-    }
-  },
-
-  getTouchPos(e) { // Pour avoir la position du doigt (Pour smartphone et tablette)
-    if (!e)
-      var e = event;
+    // Pour avoir la position du doigt (Pour smartphone et tablette
     if (e.touches) {
-      if (e.touches.length == 1) {
-        var touch = e.touches[0];
-        createCanvas.touchX = touch.pageX - touch.target.offsetLeft;
-        createCanvas.touchY = touch.pageY - touch.target.offsetTop;
+      var canvasDom = document.getElementById('canvas');
+      var rect = canvasDom.getBoundingClientRect();
+  return {
+    x: e.touches[0].clientX - rect.left,
+    y: e.touches[0].clientY - rect.top
+  };
+    } else { // Pour avoir la position de la souris
+      if (e.offsetX) {
+        this.mouseX = e.offsetX; // Position sur l'axe X
+        this.mouseY = e.offsetY; // Position sur l'axe Y
+      } else if (e.layerX) {
+        this.mouseX = e.layerX; // Retourne les coordonnees sur l'axe verticale sur l'event en cours
+        this.mouseY = e.layerY; // Retourne les coordonnees sur l'axe horizontale sur l'event en cours
       }
     }
   },
@@ -61,12 +91,12 @@ createCanvas = {
   draw() {
     canvas[0].addEventListener('mousedown', (e) => {
       createCanvas.mouseDown = true; // Quand la bouton de la souris est down
-      createCanvas.getMousePos(e); // On regarde sa position
+      createCanvas.getEventPos(e); // On regarde sa position
       createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY); // On commence a  dessiner
     }, false);
 
     canvas[0].addEventListener('mousemove', (e) => {
-      createCanvas.getMousePos(e); // Quand la souris bouge 
+      createCanvas.getEventPos(e); // Quand la souris bouge 
       if (createCanvas.mouseDown === true) { // On regarde si le bouton est down
         createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY); // Et s'il l'est on dessine
       }
@@ -80,7 +110,7 @@ createCanvas = {
 
     // Meme chose mais pour les tablettes et smartphones
     canvas[0].addEventListener("touchstart", function(e) {
-      mousePos = createCanvas.getTouchPos();
+      mousePos = createCanvas.getEventPos();
       var touch = e.touches[0];
       var mouseEvent = new MouseEvent("mousedown", {
         clientX: touch.clientX,
