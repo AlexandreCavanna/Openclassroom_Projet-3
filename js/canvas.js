@@ -28,7 +28,7 @@ createCanvas = {
     } else if (e.layerX) {
       this.mouseX = e.layerX; // Retourne les coordonnees sur l'axe verticale sur l'event en cours
       this.mouseY = e.layerY; // Retourne les coordonnees sur l'axe horizontale sur l'event en cours
-    }
+    } return
   },
 
   getTouchPos(e) { // Pour avoir la position du doigt (Pour smartphone et tablette)
@@ -40,7 +40,7 @@ createCanvas = {
         createCanvas.mouseX = touch.pageX - touch.target.offsetLeft;
         createCanvas.mouseY = touch.pageY - touch.target.offsetTop;
       }
-    } 
+    } return
   },
 
   drawLine(x, y) { // Pour dessiner des traits
