@@ -37,10 +37,10 @@ createCanvas = {
     if (e.touches) {
       if (e.touches.length == 1) {
         var touch = e.touches[0];
-        createCanvas.touchX = touch.pageX - touch.target.offsetLeft;
-        createCanvas.touchY = touch.pageY - touch.target.offsetTop;
+        createCanvas.mouseX = touch.pageX - touch.target.offsetLeft;
+        createCanvas.mouseY = touch.pageY - touch.target.offsetTop;
       }
-    }
+    } 
   },
 
   drawLine(x, y) { // Pour dessiner des traits
