@@ -61,7 +61,7 @@ carte = {
                 buttonSucess.style.display = "none";
                 buttonReserve.style.display = "inline-block";
                 mapLegend.style.display = "block";
-                createCanvas.clearCanvas();
+                // createCanvas.clearCanvas();
                 if (station.address === "") {
                     stationAddress.classList.add("text-danger");
                     stationAddress.textContent = "Pas d'adresse renseigné";

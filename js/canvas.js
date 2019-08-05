@@ -1,15 +1,109 @@
 createCanvas = {
-  mouseX: 0, // Variables pour la position de la souris
-  mouseY: 0,
-  lastX: -1, // Variables pour la precedente position de la souris
-  lastY: -1,
-  mouseDown: false, // Variable pour verifer que le boutton de la souris soit appuyee pour commencer a  dessiner
-  canvas: document.getElementById('canvas'),
-  context: null,
+  ecriture: false, // Attribut d'activation de l'écriture
+  canvas: document.getElementById("canvas"), // Sélection du canvas dans le HTML
+  context: null, // Définira le contexte d'utilisation du canvas
+  signatureImg: null,
 
-  initCanvas() { // Pour creer le canvas
-    const canvas = document.getElementById('canvas');
-    this.context = canvas.getContext('2d');
+  // Méthode qui traduit l'événement Touch en Évent pour écrans tactiles
+  convertTouchEvent: function (ev) {
+    var touch, ev_type, mouse_ev;
+    touch = ev.targetTouches[0];
+    ev.preventDefault();
+    switch (ev.type) {
+      case 'touchstart':
+        // S'assure qu'un doigt est sur la cible
+        if (ev.targetTouches.length != 1) {
+          return;
+        }
+        touch = ev.targetTouches[0];
+        ev_type = 'mousedown';
+        break;
+      case 'touchmove':
+        // S'assure qu'un doigt est sur la cible
+        if (ev.targetTouches.length != 1) {
+          return;
+        }
+        touch = ev.targetTouches[0];
+        ev_type = 'mousemove';
+        break;
+      case 'touchend':
+        // Sassure que le doigt a été enlever de la cible
+        if (ev.changedTouches.length != 1) {
+          return;
+        }
+        touch = ev.changedTouches[0];
+        ev_type = 'mouseup';
+        break;
+      default:
+        return;
+    }
+
+    mouse_ev = document.createEvent("MouseEvents");
+    mouse_ev.initMouseEvent(
+      ev_type, // Genre de l'événement
+      true,
+      true,
+      window, // Vue de l'événement
+      0, // Compte de clic de souris
+      touch.screenX, // Coordonnée X de l'écran
+      touch.screenY, // Coordonnée Y de l'écran
+      touch.clientX, // Coordonnée X du client
+      touch.clientY, // Coordonnée Y du client
+      ev.ctrlKey, // Vérifie si la touche contrôle a été appuyée
+      ev.altKey, // Vérifie si la touche alt a été appuyée
+      ev.shiftKey, // Vérifie si la touche majuscule a été appuyée
+      ev.metaKey, // Vérifie si la touche meta a été appuyée
+      0, // Bouton de la souris
+      null // Cible
+    );
+    this.dispatchEvent(mouse_ev);
+  },
+
+  // Méthode qui récupére les coordonnées de l'Élément de pointage (souris, doigt...)
+  getMousePos: function (event) {
+    rect = this.canvas.getBoundingClientRect(); // Renvoie la taille d'un élément et sa position relative par rapport à la zone d'affichage
+
+    return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    };
+  },
+
+  // Méthode qui détermine le déplacement de l'élément de pointage
+  deplacementSouris: function (event) {
+    sourisPosition = this.getMousePos(event); // Coordonnées de l'élément de pointage retourner par la méthode "getMousePos"
+    positionX = sourisPosition.x;
+    positionY = sourisPosition.y;
+    this.dessin(positionX, positionY);
+  },
+
+  // Méthode qui permet de dessiner dans le canvas
+  dessin: function (positionX, positionY) {
+    this.context = this.canvas.getContext("2d"); // Contexte du canvas
+    this.context.lineWidth = 5; // Largeur du tracer
+
+    if (this.ecriture) {
+      this.context.lineTo(positionX, positionY); // Désigne le point d'arrivé du tracer
+      this.context.stroke(); // Effectue le tracer
+    }
+  },
+
+  // Méthode qui permet de désactiver l'écriture
+  desactivationDessin: function () {
+    this.ecriture = false; // Désactive l'écriture dans le canvas
+  },
+
+  // Méthode qui active et débute l'écriture dans le canvas
+  activationDessin: function () {
+    this.ecriture = true; // Active l'écriture sur le canvas
+    this.context.beginPath(); // Commence un nouveau chemin de dessin
+    this.context.moveTo(positionX, positionY); // Désigne le début du tracer
+  },
+  // Méthode qui permet d'effacer le canvas
+  clearCanvas: function () {
+    this.context.clearRect(0, 0, 800, 200); // Réinitialise le canvas
+  },
+  initCanvas: function () {
     var mqdefault = window.matchMedia("(max-width: 576px)");
     var mqxs = window.matchMedia("(min-width: 576px)");
     var mqsm = window.matchMedia("(min-width: 778px)");
@@ -17,135 +111,46 @@ createCanvas = {
     var mqlg = window.matchMedia("(min-width: 1200px)");
     var mqlfullhd = window.matchMedia("(min-width: 1920px)");
     var mql4k = window.matchMedia("(min-width: 2560px)");
-    if (mqdefault.matches) {mqdefault
-      canvas.width = 230; // Largeur du canvas
-      canvas.height = 300;// Hauteur du canvas
+    if (mqdefault.matches) {
+     this.canvas.width = 230; // Largeur du canvas
+     this.canvas.height = 300;// Hauteur du canvas
     }
     if (mqxs.matches) {
-      canvas.width = 500; // Largeur du canvas
-      canvas.height = 300;// Hauteur du canvas
+     this.canvas.width = 500; // Largeur du canvas
+     this.canvas.height = 300;// Hauteur du canvas
     } if (mqsm.matches) {
-      canvas.width = 700; // Largeur du canvas
-      canvas.height = 400; // Hauteur du canvas
+     this.canvas.width = 700; // Largeur du canvas
+     this.canvas.height = 400; // Hauteur du canvas
     } 
     if (mqmd.matches) {
-      canvas.width = 310; // Largeur du canvas
-      canvas.height = 300; // Hauteur du canvas
+     this.canvas.width = 310; // Largeur du canvas
+     this.canvas.height = 300; // Hauteur du canvas
     }
     if (mqlg.matches) {
-      canvas.width = 520; // Largeur du canvas
-      canvas.height = 400; // Hauteur du canvas
+     this.canvas.width = 520; // Largeur du canvas
+     this.canvas.height = 400; // Hauteur du canvas
     }
     if (mqlfullhd.matches) {
-      canvas.width = 680; // Largeur du canvas
-      canvas.height = 400; // Hauteur du canvas
+     this.canvas.width = 680; // Largeur du canvas
+     this.canvas.height = 400; // Hauteur du canvas
     }
     if (mql4k.matches) {
-      canvas.width = 900; // Largeur du canvas
-      canvas.height = 400; // Hauteur du canvas
+     this.canvas.width = 900; // Largeur du canvas
+     this.canvas.height = 400; // Hauteur du canvas
     }
-    this.context.fillStyle = "#fff"; // Couleur de fond
-    this.context.lineWidth = 2; // Epaisseur du trait
-    this.context.strokeStyle = "black"; // Couleur du trait
-    this.context.lineCap = 'round'; // Extremite du trait
-    this.draw(); // Pour dessiner
-    this.erase(); // Pour effacer le contenu du canvas
-  },
+    // Appel des méthodes sur écrans tactiles
+    createCanvas.canvas.addEventListener("touchstart", createCanvas.convertTouchEvent);
+    createCanvas.canvas.addEventListener("touchmove", createCanvas.convertTouchEvent);
+    createCanvas.canvas.addEventListener("touchend", createCanvas.convertTouchEvent);
 
-  getEventPos(e) {
-    if (!e)
-      var e = event;
-    // Pour avoir la position du doigt (Pour smartphone et tablette
-    if (e.touches) {
-      var rect = this.canvas.getBoundingClientRect();
-  return {
-    x: e.touches[0].clientX - rect.left,
-    y: e.touches[0].clientY - rect.top
-  };
-    } else { // Pour avoir la position de la souris
-      if (e.offsetX) {
-        this.mouseX = e.offsetX; // Position sur l'axe X
-        this.mouseY = e.offsetY; // Position sur l'axe Y
-      } else if (e.layerX) {
-        this.mouseX = e.layerX; // Retourne les coordonnees sur l'axe verticale sur l'event en cours
-        this.mouseY = e.layerY; // Retourne les coordonnees sur l'axe horizontale sur l'event en cours
-      }
-    }
-  },
+    // Appel des méthodes sur PC
+    createCanvas.canvas.addEventListener("mousedown", createCanvas.activationDessin.bind(createCanvas));
+    createCanvas.canvas.addEventListener("mousemove", createCanvas.deplacementSouris.bind(createCanvas));
+    createCanvas.canvas.addEventListener("mouseup", createCanvas.desactivationDessin.bind(createCanvas));
 
-  drawLine(x, y) { // Pour dessiner des traits
-    if (this.lastX == -1) { // Si c'est un nouveau chemin
-      this.lastX = x; // Le premier point et le point du clic
-      this.lastY = y;
-    }
-    this.context.beginPath(); // Debut du chemin
-    this.context.moveTo(this.lastX, this.lastY); // Point de depart
-    this.context.lineTo(x, y); // Trace de la ligne
-    this.context.closePath(); // Fermeture du chemin
-    this.context.stroke();
-    this.lastX = x;
-    this.lastY = y;
-    document.getElementById("reservation-success").style.display = "inline-block";
-  },
-
-  draw() {
-    canvas[0].addEventListener('mousedown', (e) => {
-      createCanvas.mouseDown = true; // Quand la bouton de la souris est down
-      createCanvas.getEventPos(e); // On regarde sa position
-      createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY); // On commence a  dessiner
-    }, false);
-
-    canvas[0].addEventListener('mousemove', (e) => {
-      createCanvas.getEventPos(e); // Quand la souris bouge 
-      if (createCanvas.mouseDown === true) { // On regarde si le bouton est down
-        createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY); // Et s'il l'est on dessine
-      }
-    }, false);
-
-    window.addEventListener('mouseup', () => { // Quand le bouton de la souris n'est plus down
-      createCanvas.mouseDown = false; // La souris n'est plus down
-      createCanvas.lastX = -1; // La derniere position de la souris est -1 pour indiquer qu'il y a un nouveau chemin
-      createCanvas.lastY = -1;
-    }, false);
-
-    // Meme chose mais pour les tablettes et smartphones
-    canvas[0].addEventListener("touchstart", function(e) {
-      mousePos = createCanvas.getEventPos();
-      var touch = e.touches[0];
-      var mouseEvent = new MouseEvent("mousedown", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-      });
-      canvas[0].dispatchEvent(mouseEvent);
-      createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY);
-      e.preventDefault();
-    }, false);
-    
-    canvas[0].addEventListener("touchend", function(e) {
-      var mouseEvent = new MouseEvent("mouseup");
-      canvas[0].dispatchEvent(mouseEvent);
-      createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY);
-      e.preventDefault();
-    }, false);
-    
-    canvas[0].addEventListener("touchmove", function(e) {
-      var touch = e.touches[0];
-      var mouseEvent = new MouseEvent("mousemove", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-      });
-      canvas[0].dispatchEvent(mouseEvent);
-      e.preventDefault();
-    }, false);
-  },
-
-  erase() { // Pour effacer le canvas
     document.getElementById("canvas-delete").addEventListener("click", () => {
-      createCanvas.context.clearRect(0, 0, canvas[0].width, canvas[0].height); // Efface le contenu du canvas
+      createCanvas.clearCanvas(); // Efface le contenu du canvas
       document.getElementById("reservation-success").style.display = "none";
     });
   },
-  clearCanvas() { // Pour effacer le canvas lors d'un nouvelle reservation (pas de storage)
-    createCanvas.context.clearRect(0, 0, canvas[0].width, canvas[0].height);
-  }
 }
