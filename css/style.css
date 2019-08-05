@@ -201,10 +201,12 @@ a img {
 }
 
 #mapid {
-	height: 100vh !important;
+	height: 700px !important;
 	width: 100% !important;
 }
-
+.alert {
+	margin-top: 1rem !important;
+}
 .logo-form {
 	font-size: 30px;
 }

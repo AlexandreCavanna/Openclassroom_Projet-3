@@ -57,6 +57,7 @@ createCanvas = {
       null // Cible
     );
     this.dispatchEvent(mouse_ev);
+    document.getElementById("reservation-success").style.display = "inline-block";
   },
 
   // Méthode qui récupére les coordonnées de l'Élément de pointage (souris, doigt...)
@@ -98,10 +99,11 @@ createCanvas = {
     this.ecriture = true; // Active l'écriture sur le canvas
     this.context.beginPath(); // Commence un nouveau chemin de dessin
     this.context.moveTo(positionX, positionY); // Désigne le début du tracer
+    document.getElementById("reservation-success").style.display = "inline-block";
   },
   // Méthode qui permet d'effacer le canvas
   clearCanvas: function () {
-    this.context.clearRect(0, 0, 800, 200); // Réinitialise le canvas
+    this.context.clearRect(0, 0, 3000, 3000); // Réinitialise le canvas
   },
   initCanvas: function () {
     var mqdefault = window.matchMedia("(max-width: 576px)");
