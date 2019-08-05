@@ -19,7 +19,8 @@ createCanvas = {
     this.erase(); // Pour effacer le contenu du canvas
   },
 
-  getMousePos(e) { // Pour avoir la position de la souris
+  getEventPos(e) { 
+    // Pour avoir la position de la souris
     if (!e)
       var e = event;
     if (e.offsetX) {
@@ -28,10 +29,8 @@ createCanvas = {
     } else if (e.layerX) {
       this.mouseX = e.layerX; // Retourne les coordonnees sur l'axe verticale sur l'event en cours
       this.mouseY = e.layerY; // Retourne les coordonnees sur l'axe horizontale sur l'event en cours
-    } return
-  },
-
-  getTouchPos(e) { // Pour avoir la position du doigt (Pour smartphone et tablette)
+    }
+    // Pour avoir la position du doigt (Pour smartphone et tablette)
     if (!e)
       var e = event;
     if (e.touches) {
@@ -59,52 +58,60 @@ createCanvas = {
   },
 
   draw() {
-    canvas[0].addEventListener('mousedown', (e) => {
-      createCanvas.mouseDown = true; // Quand la bouton de la souris est down
-      createCanvas.getMousePos(e); // On regarde sa position
-      createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY); // On commence a  dessiner
-    }, false);
+    if (e.touches) {
+      // touch
+      // Meme chose mais pour les tablettes et smartphones
+      canvas[0].addEventListener("touchstart", function (e) {
+        mousePos = createCanvas.getEventPos();
+        createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY);
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousedown", {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        canvas[0].dispatchEvent(mouseEvent);
+        e.preventDefault();
+      }, false);
 
-    canvas[0].addEventListener('mousemove', (e) => {
-      createCanvas.getMousePos(e); // Quand la souris bouge 
-      if (createCanvas.mouseDown === true) { // On regarde si le bouton est down
-        createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY); // Et s'il l'est on dessine
-      }
-    }, false);
+      canvas[0].addEventListener("touchend", function (e) {
+        var mouseEvent = new MouseEvent("mouseup");
+        canvas[0].dispatchEvent(mouseEvent);
+        e.preventDefault();
+      }, false);
 
-    window.addEventListener('mouseup', () => { // Quand le bouton de la souris n'est plus down
-      createCanvas.mouseDown = false; // La souris n'est plus down
-      createCanvas.lastX = -1; // La derniere position de la souris est -1 pour indiquer qu'il y a un nouveau chemin
-      createCanvas.lastY = -1;
-    }, false);
+      canvas[0].addEventListener("touchmove", function (e) {
+        mousePos = createCanvas.getEventPos();
+        createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY);
+        var touch = e.touches[0];
+        var mouseEvent = new MouseEvent("mousemove", {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        canvas[0].dispatchEvent(mouseEvent);
+        e.preventDefault();
+      }, false);
+    }
+    else {
+      // mouse
+      canvas[0].addEventListener('mousedown', (e) => {
+        createCanvas.mouseDown = true; // Quand la bouton de la souris est down
+        createCanvas.getEventPos(e); // On regarde sa position
+        createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY); // On commence a  dessiner
+      }, false);
 
-    // Meme chose mais pour les tablettes et smartphones
-    canvas[0].addEventListener("touchstart", function(e) {
-      mousePos = createCanvas.getTouchPos();
-      var touch = e.touches[0];
-      var mouseEvent = new MouseEvent("mousedown", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-      });
-      canvas[0].dispatchEvent(mouseEvent);
-      e.preventDefault();
-    }, false);
-    
-    canvas[0].addEventListener("touchend", function(e) {
-      var mouseEvent = new MouseEvent("mouseup");
-      canvas[0].dispatchEvent(mouseEvent);
-      e.preventDefault();
-    }, false);
-    
-    canvas[0].addEventListener("touchmove", function(e) {
-      var touch = e.touches[0];
-      var mouseEvent = new MouseEvent("mousemove", {
-        clientX: touch.clientX,
-        clientY: touch.clientY
-      });
-      canvas[0].dispatchEvent(mouseEvent);
-      e.preventDefault();
-    }, false);
+      canvas[0].addEventListener('mousemove', (e) => {
+        createCanvas.getEventPos(e); // Quand la souris bouge 
+        if (createCanvas.mouseDown === true) { // On regarde si le bouton est down
+          createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY); // Et s'il l'est on dessine
+        }
+      }, false);
+
+      window.addEventListener('mouseup', () => { // Quand le bouton de la souris n'est plus down
+        createCanvas.mouseDown = false; // La souris n'est plus down
+        createCanvas.lastX = -1; // La derniere position de la souris est -1 pour indiquer qu'il y a un nouveau chemin
+        createCanvas.lastY = -1;
+      }, false);
+    }
   },
 
   erase() { // Pour effacer le canvas
