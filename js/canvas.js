@@ -4,6 +4,7 @@ createCanvas = {
   lastX: -1, // Variables pour la precedente position de la souris
   lastY: -1,
   mouseDown: false, // Variable pour verifer que le boutton de la souris soit appuyee pour commencer a  dessiner
+  canvas: document.getElementById('canvas'),
   context: null,
 
   initCanvas() { // Pour creer le canvas
@@ -56,8 +57,7 @@ createCanvas = {
       var e = event;
     // Pour avoir la position du doigt (Pour smartphone et tablette
     if (e.touches) {
-      var canvasDom = document.getElementById('canvas');
-      var rect = canvasDom.getBoundingClientRect();
+      var rect = this.canvas.getBoundingClientRect();
   return {
     x: e.touches[0].clientX - rect.left,
     y: e.touches[0].clientY - rect.top
@@ -117,12 +117,14 @@ createCanvas = {
         clientY: touch.clientY
       });
       canvas[0].dispatchEvent(mouseEvent);
+      createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY);
       e.preventDefault();
     }, false);
     
     canvas[0].addEventListener("touchend", function(e) {
       var mouseEvent = new MouseEvent("mouseup");
       canvas[0].dispatchEvent(mouseEvent);
+      createCanvas.drawLine(createCanvas.mouseX, createCanvas.mouseY);
       e.preventDefault();
     }, false);
     
@@ -143,7 +145,7 @@ createCanvas = {
       document.getElementById("reservation-success").style.display = "none";
     });
   },
-  clearCanvas() {
+  clearCanvas() { // Pour effacer le canvas lors d'un nouvelle reservation (pas de storage)
     createCanvas.context.clearRect(0, 0, canvas[0].width, canvas[0].height);
   }
 }
