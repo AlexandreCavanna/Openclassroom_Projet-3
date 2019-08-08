@@ -77,7 +77,7 @@ diaporama = {
     clearInterval(this.interval);
   },
 
-  init() {
+  initDiaporama() {
     this.elementNext.addEventListener('click', () => this.next());
     this.elementPrev.addEventListener('click', () => this.prev());
     document.addEventListener('keydown', event => {
