@@ -172,73 +172,72 @@
                   <ul class="list-group list-group-flush">
                      <li class="list-group-item">
                         <div class="row">
-                              <div class="col-2">
-                     <img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png" alt="Marker bleu">
-                  </div>
-                  <div class="col-10">
-                     Stations ayant plusieurs Vélibs
-                  </div>
-                  </li>
-                  <li class="list-group-item">
-                        <div class="row">
-                              <div class="col-2">
+                           <div class="col-2">
+                              <img src="https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png" alt="Marker bleu">
+                           </div>
+                           <div class="col-10">
+                              Stations ayant plusieurs Vélibs
+                           </div>
+                     </li>
+                     <li class="list-group-item">
+                     <div class="row">
+                     <div class="col-2">
                      <img src="images/red_marker.png" alt="Marker rouge" height="41" width="35">
-                  </div>
+                     </div>
                      <div class="col-10">
                      Stations n'ayant plus aucun Vélib
-                  </div>
-                  </li>
-                  <li class="list-group-item">
-                     
-                        <div class="row">
-                        <div class="col-12 offset-2">
-                           Regroupement de stations
-                        </div>
+                     </div>
+                     </li>
+                     <li class="list-group-item">
+                     <div class="row">
+                     <div class="col-12 offset-2">
+                     Regroupement de stations
+                     </div>
                      </div>
                      <div class="row">
-                        <div class="col-12 offset-2">
-                           <img src="images/green_cluster.png" alt="Cercle vert">
-                           <img src="images/yellow_cluster.png" alt="Cercle jaune">
-                           <img src="images/orange_cluster.png" alt="Cercle orange">
-                        </div>
+                     <div class="col-12 offset-2">
+                     <img src="images/green_cluster.png" alt="Cercle vert">
+                     <img src="images/yellow_cluster.png" alt="Cercle jaune">
+                     <img src="images/orange_cluster.png" alt="Cercle orange">
                      </div>
                      </div>
-                  </li>
+                     </div>
+                     </li>
                   </ul>
+                  </div>
                </div>
             </div>
          </div>
-      </div>
-      <div class="modal fade" id="modalReservation" tabindex="-1" role="dialog" aria-labelledby="modalReservation"
-         style="display: none;" aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header red-lighten-1 text-white">
-                  <h5 class="modal-title" id="exampleModalLabel">Annulation d'une réservation</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  Êtes-vous sûr de vouloir annuler la réservation en cours ?
-               </div>
-               <div class="modal-footer">
-                  <a id="delete-reservation" data-dismiss="modal" class="btn btn-success text-white"
-                     style="cursor: pointer;">Oui</a>
-                  <a class="btn btn-secondary text-white" data-dismiss="modal" style="cursor: pointer;">Non</a>
+         <div class="modal fade" id="modalReservation" tabindex="-1" role="dialog" aria-labelledby="modalReservation"
+            style="display: none;" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                  <div class="modal-header red-lighten-1 text-white">
+                     <h5 class="modal-title" id="exampleModalLabel">Annulation d'une réservation</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">×</span>
+                     </button>
+                  </div>
+                  <div class="modal-body">
+                     Êtes-vous sûr de vouloir annuler la réservation en cours ?
+                  </div>
+                  <div class="modal-footer">
+                     <a id="delete-reservation" data-dismiss="modal" class="btn btn-success text-white"
+                        style="cursor: pointer;">Oui</a>
+                     <a class="btn btn-secondary text-white" data-dismiss="modal" style="cursor: pointer;">Non</a>
+                  </div>
                </div>
             </div>
          </div>
-      </div>
-      <!-- Canvas pour signer la réservation -->
-      <canvas id="canvas" width="310" height="100" style="display: none;"></canvas>
-      <!-- Zone des boutons de la fenêtre d'informations -->
-      <div id="boutons_formulaire" style="display: none;">
-         <!-- Bouton pour Effacer le contenu du Canvas -->
-         <input type="button" value="Effacer" id="effacer">
-         <!-- Bouton Valider -->
-         <input type="button" id="bouton_valider" value="Valider">
-      </div>
+         <!-- Canvas pour signer la réservation -->
+         <canvas id="canvas" width="310" height="100" style="display: none;"></canvas>
+         <!-- Zone des boutons de la fenêtre d'informations -->
+         <div id="boutons_formulaire" style="display: none;">
+            <!-- Bouton pour Effacer le contenu du Canvas -->
+            <input type="button" value="Effacer" id="effacer">
+            <!-- Bouton Valider -->
+            <input type="button" id="bouton_valider" value="Valider">
+         </div>
       </div>
       </div>
       <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
