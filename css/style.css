@@ -309,58 +309,64 @@ a img {
 #inputPrenom {
 	position: relative;
 	right: 12px;
+} 
+@media (max-width: 576px) {
+	ul .list-group-item {
+  	font-size: 12px;
+    display: inline;
+	}
 }
 	@media (min-width: 576px) {
-		a span {
-			font-size: 32px !important;
+	a span {
+		font-size: 32px !important;
 	}
 	a img {
 		width: 120px;
 		height: 90px;
 	}  
-		}
-	@media (min-width: 768px) {  
-		.nav-link {
-			font-size: 14px;
-		}
-		.container-fluid {
-			top: 70px;
-		}
+}
+@media (min-width: 768px) {  
+	.nav-link {
+		font-size: 14px;
 	}
-	@media (min-width: 992px) {  
-		.nav-link {
-			font-size: 18px;
-		}
-		ul.navbar-nav {
-			position: relative;
-			left: 200px;
-		}
-		#input-form {
-			width: 200px;
-		}
+	.container-fluid {
+		top: 70px;
 	}
-	@media (min-width: 1200px) {  
-		ul.navbar-nav {
-			position: relative;
-			left: 400px;
-		}
+}
+@media (min-width: 992px) {  
+	.nav-link {
+		font-size: 18px;
 	}
-	@media (min-width: 1920px) {  
-		ul.navbar-nav {
-			position: relative;
-			left: 1000px;
-		}
+	ul.navbar-nav {
+		position: relative;
+		left: 200px;
 	}
-	@media (min-width: 2560px) {  
-		ul.navbar-nav {
-			position: relative;
-			left: 1000px;
-		}
-		.nav-link {
-			font-size: 30px;
-		}
-		a span {
-			font-size: 72px !important;
+	#input-form {
+		width: 200px;
+	}
+}
+@media (min-width: 1200px) {  
+	ul.navbar-nav {
+		position: relative;
+		left: 400px;
+	}
+}
+@media (min-width: 1920px) {  
+	ul.navbar-nav {
+		position: relative;
+		left: 1000px;
+	}
+}
+@media (min-width: 2560px) {  
+	ul.navbar-nav {
+		position: relative;
+		left: 1000px;
+	}
+	.nav-link {
+		font-size: 30px;
+	}
+	a span {
+		font-size: 72px !important;
 	}
 	a img {
 		width: 250px;
@@ -369,10 +375,10 @@ a img {
 	.container-fluid {
 		top: 180px;
 	}
-#textSlide {
+	#textSlide {
 	font-size: 30px;
-}  
-	 }
+	}  
+}   
 canvas {
 	display: block;
 	margin: 0 auto;
