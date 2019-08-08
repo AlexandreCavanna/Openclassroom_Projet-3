@@ -11,7 +11,7 @@ ajax(url, function(resp) {
     carte.createMarker(stations);
     form.initForm();
     createCanvas.initCanvas();
-    diaporama.init();
+    diaporama.initDiaporama();
 });
 
 
