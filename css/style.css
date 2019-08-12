@@ -292,7 +292,9 @@ a img {
 	top: 10px;
 	width: 175px;
 }
-
+#reservation {
+	overflow: hidden;
+}
 #zone_reservation {
 	display: flex;
 	flex-direction: column;
