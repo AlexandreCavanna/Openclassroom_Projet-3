@@ -295,6 +295,10 @@ a img {
 #reservation {
 	overflow: hidden;
 }
+#map-legend div.col-2  img[alt="Marker bleu"] {
+	position: relative;
+	left: 5px;
+}
 #zone_reservation {
 	display: flex;
 	flex-direction: column;
