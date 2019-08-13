@@ -2,7 +2,7 @@
 <html lang="fr">
    <head>
       <link rel="icon" href="images/velo.png"/>
-      <!-- Required meta tags -->
+      <!-- Required meta tags --->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <!-- Twitter Card data -->
@@ -57,7 +57,7 @@
          <section id="Fonctionnement">
             <div id="diaporama">
                <div id="imgSlider">
-                  <div id="textSlide"><h1 class="font-weight-bold">Bienvenue sur le site de réservation de velo de Lyon :</h1> <br> Ce diaporama vous montre la façon d'utiliser la carte</div>
+                  <div id="textSlide"><span class="font-weight-bold">Bienvenue sur le site de réservation de velo de Lyon :</span> <br> Ce diaporama vous montre la façon d'utiliser la carte</div>
                   <figure class="imageFonctionnement">
                      <img sizes="(max-width: 1428px) 100vw, 1428px"
                         srcset="
@@ -136,11 +136,11 @@
                            <div id="input-Form">
                               <div class="col">
                                  <label for="name">Nom :</label>
-                                 <input class="input-Nom_Prenom" type="text" id="name" name="name" required minlength="4">
+                                 <input class="input-Nom_Prenom"type="text" id="name" name="name" required minlength="4">
                               </div>
                               <div class="col" id="inputPrenom">
                                  <label for="firstname">Prénom :</label>
-                                 <input class="input-Nom_Prenom" type="text" id="firstname" name="firstname" required minlength="4">
+                                 <input class="input-Nom_Prenom"type="text" id="firstname" name="firstname" required minlength="4">
                               </div>
                            </div>
                         </div>
@@ -178,38 +178,38 @@
                            <div class="col-10">
                               Stations ayant plusieurs Vélibs
                            </div>
-                        </div>
                      </li>
                      <li class="list-group-item">
-                        <div class="row">
-                           <div class="col-2">
-                              <img src="images/red_marker.png" alt="Marker rouge" height="41" width="35">
-                           </div>
-                           <div class="col-10">
-                              Stations n'ayant plus aucun Vélib
-                           </div>
-                        </div>   
+                     <div class="row">
+                     <div class="col-2">
+                     <img src="images/red_marker.png" alt="Marker rouge" height="41" width="35">
+                     </div>
+                     <div class="col-10">
+                     Stations n'ayant plus aucun Vélib
+                     </div>
                      </li>
                      <li class="list-group-item">
-                        <div class="row">
-                           <div class="col-12 offset-2">
-                           Regroupement de stations
-                        </div>
-                           </div>
-                        <div class="row">
-                           <div class="col-12 offset-sm-1">
-                              <img src="images/green_cluster.png" alt="Cercle vert"> <label>: 2 - 10</label> 
-                              <img src="images/yellow_cluster.png" alt="Cercle jaune"> <label>: 10 - 100</label>
-                              <img src="images/orange_cluster.png" alt="Cercle orange"> <label>: > 100</label>
-                           </div>
-                        </div>
+                     <div class="row">
+                     <div class="col-12 offset-2">
+                     Regroupement de stations
+                     </div>
+                     </div>
+                     <div class="row">
+                     <div class="col-12 offset-sm-1">
+                     <img src="images/green_cluster.png" alt="Cercle vert"> <label>: 2 - 10</label> 
+                     <img src="images/yellow_cluster.png" alt="Cercle jaune"> <label>: 10 - 100</label>
+                     <img src="images/orange_cluster.png" alt="Cercle orange"> <label>: > 100</label>
+                     </div>
+                     </div>
+                     </div>
                      </li>
                   </ul>
+                  </div>
                </div>
             </div>
          </div>
-      </div>
-      <div class="modal fade" id="modalReservation" tabindex="-1" role="dialog" aria-labelledby="modalReservation" style="display: none;" aria-hidden="true">
+         <div class="modal fade" id="modalReservation" tabindex="-1" role="dialog" aria-labelledby="modalReservation"
+            style="display: none;" aria-hidden="true">
             <div class="modal-dialog" role="document">
                <div class="modal-content">
                   <div class="modal-header red-lighten-1 text-white">
@@ -229,7 +229,17 @@
                </div>
             </div>
          </div>
-
+         <!-- Canvas pour signer la réservation -->
+         <canvas id="canvas" width="310" height="100" style="display: none;"></canvas>
+         <!-- Zone des boutons de la fenêtre d'informations -->
+         <div id="boutons_formulaire" style="display: none;">
+            <!-- Bouton pour Effacer le contenu du Canvas -->
+            <input type="button" value="Effacer" id="effacer">
+            <!-- Bouton Valider -->
+            <input type="button" id="bouton_valider" value="Valider">
+         </div>
+      </div>
+      </div>
       <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
          integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
       <script src="js/ajax.js"></script>
